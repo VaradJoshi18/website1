@@ -1,148 +1,665 @@
-﻿<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pleasure Global Travel & Visa LLP | Luxury Travel & Visa Services</title>
-  <meta name="description" content="Pleasure Global Travel & Visa LLP offers premium visa, travel, tour, cruise, hotel, transfer, and ticketing services for global journeys.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pleasure Global Travel & Visa LLP | Luxury Travel Concierge</title>
+    <meta name="description" content="Curated luxury journeys, comprehensive visa assistance, and bespoke travel planning by Pleasure Global. Discover the art of premium travel.">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- GSAP & ScrollTrigger -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    
+    <!-- Lenis Smooth Scroll -->
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Custom Luxury Theme CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: {
+                            950: '#070b14',
+                            900: '#0B1120',
+                            800: '#151E32',
+                            700: '#1E293B',
+                        },
+                        gold: {
+                            300: '#EED790',
+                            400: '#D4AF37',
+                            500: '#C59B2D',
+                            600: '#B8922E',
+                        },
+                        ivory: '#FDFBF7',
+                    },
+                    fontFamily: {
+                        serif: ['"Playfair Display"', 'serif'],
+                        sans: ['"Inter"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
 </head>
-<body data-page="home">
-  <div class="loader" id="pageLoader" aria-hidden="true">
-    <div class="loader__orbit"></div>
-    <div class="loader__core"><span>PG</span></div>
-  </div>
-  <div class="site-shell">
-    <header class="header" id="siteHeader">
-      <div class="container nav-wrap">
-        <a class="brand" href="index.html" aria-label="Pleasure Global home">
-          <img src="assets/images/logo.jpeg" alt="My Logo" class="brand-mark">
-          <!-- <div class="brand-mark"><span class="brand-mark__loop"></span><span class="brand-mark__dot"></span></div> -->
-          <div><strong>Pleasure Global</strong><span>Travel & Visa LLP</span></div>
-        </a>
-        <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span></button>
-        <nav class="nav" id="siteNav">
-          <a href="index.html" class="is-active">Home</a>
-          <a href="visa-services.html">Visa Services</a>
-          <a href="travel-services.html">Travel Services</a>
-          <a href="about.html">About</a>
-          <a href="#contact">Contact</a>
-        </nav>
-      </div>
-    </header>
-    <main>
-      <section class="hero hero--home">
-        <div class="hero__backdrop" data-parallax></div>
-        <div class="container hero__content">
-          <div class="eyebrow reveal">Luxury journeys. Effortless planning.</div>
-          <h1 class="reveal">Explore the World with Us</h1>
-          <p class="reveal">Visa, Travel & Complete Journey Solutions crafted for travellers who value speed, trust, and elevated experiences.</p>
-          <div class="hero__actions reveal">
-            <a class="btn btn--primary" href="#services">Explore Services</a>
-            <a class="btn btn--secondary" href="#contact">Contact Us</a>
-          </div>
-          <div class="hero-panel glass reveal">
-            <div><strong>Global Visa Support</strong><span>USA specialist, visitor visas, interview prep</span></div>
-            <div><strong>Premium Travel Curation</strong><span>Tours, cruises, stays, transfers, flights</span></div>
-            <div><strong>Always-On Assistance</strong><span>Rescheduling, check-ins, and travel help 24/7</span></div>
-          </div>
-        </div>
-      </section>
-      <section class="section stats-strip">
-        <div class="container stats-grid">
-          <div class="stat-card glass reveal"><strong data-counter="12">0</strong><span>Years of travel guidance</span></div>
-          <div class="stat-card glass reveal"><strong data-counter="50">0</strong><span>Destinations curated worldwide</span></div>
-          <div class="stat-card glass reveal"><strong data-counter="24">0</strong><span>Hours support available</span></div>
-          <div class="stat-card glass reveal"><strong data-counter="100">0</strong><span>Custom itineraries and visa cases monthly</span></div>
-        </div>
-      </section>
-      <section class="section" id="services">
-        <div class="container">
-          <div class="section-heading reveal">
-            <span class="eyebrow">Signature Services</span>
-            <h2>Designed around every stage of your journey</h2>
-            <p>From documentation to destination, each service is delivered with concierge-level attention and reliable execution.</p>
-          </div>
-          <div class="card-grid card-grid--4">
-            <article class="service-card glass reveal"><i class="ri-passport-line"></i><h3>Visa Services</h3><p>USA visa interview preparation, visitor visas, documentation guidance, and appointment support.</p><a href="visa-services.html">Discover more</a></article>
-            <article class="service-card glass reveal"><i class="ri-flight-takeoff-line"></i><h3>Travel Services</h3><p>Hotels, cruises, airport transfers, premium transport, and smooth end-to-end trip coordination.</p><a href="travel-services.html">Discover more</a></article>
-            <article class="service-card glass reveal"><i class="ri-map-pin-2-line"></i><h3>Tour Packages</h3><p>Tailor-made international holidays with luxury stays, guided experiences, and private transfers.</p><a href="travel-services.html#tour-packages">Discover more</a></article>
-            <article class="service-card glass reveal"><i class="ri-ticket-2-line"></i><h3>Flight Booking</h3><p>International and domestic ticketing with preferred fares, seat selection, and schedule support.</p><a href="travel-services.html#air-tickets">Discover more</a></article>
-          </div>
-        </div>
-      </section>
-      <section class="section section--dark">
-        <div class="container split-layout">
-          <div class="split-copy reveal">
-            <span class="eyebrow">Why Choose Us</span>
-            <h2>A trusted partner for complex travel and visa planning</h2>
-            <p>Pleasure Global Travel & Visa LLP blends specialist visa support with premium travel design, helping clients move confidently from first consultation to final arrival.</p>
-            <div class="feature-list">
-              <div class="feature-pill glass"><i class="ri-shield-check-line"></i><div><h3>Trusted Agency</h3><p>Professional guidance with a client-first, transparent approach.</p></div></div>
-              <div class="feature-pill glass"><i class="ri-timer-flash-line"></i><div><h3>Fast Processing</h3><p>Quick coordination for forms, appointments, and travel arrangements.</p></div></div>
-              <div class="feature-pill glass"><i class="ri-price-tag-3-line"></i><div><h3>Affordable Packages</h3><p>Smart pricing across tours, hotels, flights, and transport options.</p></div></div>
-              <div class="feature-pill glass"><i class="ri-customer-service-2-line"></i><div><h3>24/7 Support</h3><p>Active assistance for booking changes, check-ins, and on-trip queries.</p></div></div>
+<body class="antialiased selection:bg-gold-500 selection:text-white">
+
+    <!-- Noise Overlay -->
+    <div class="noise-bg"></div>
+
+    <!-- Loader -->
+    <div class="loader" id="loader">
+        <div class="text-center flex flex-col items-center">
+            <!-- Loader Logo Emblem -->
+            <div class="mb-6 scale-125">
+                <svg class="w-16 h-12" viewBox="0 0 60 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="loader-infinity-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#2563EB" />
+                            <stop offset="50%" stop-color="#3B82F6" />
+                            <stop offset="70%" stop-color="#F59E0B" />
+                            <stop offset="100%" stop-color="#D4AF37" />
+                        </linearGradient>
+                    </defs>
+                    <path d="M30 20 C22 10, 10 10, 10 20 C10 30, 22 30, 30 20 C38 10, 50 10, 50 20 C50 30, 38 30, 30 20 Z" 
+                          stroke="url(#loader-infinity-grad)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+                    <rect x="8" y="7" width="5" height="7" rx="0.5" transform="rotate(-15 8 7)" fill="#1E3A8A" stroke="#FDFBF7" stroke-width="0.5"/>
+                    <path d="M47 6 L51 9 L49 10 L47 8 L45 8 L46 11 L44 11 L43 8 L42 8 L41 6 Z" fill="#F59E0B" />
+                    <circle cx="30" cy="27" r="6" fill="#070b14" stroke="#3B82F6" stroke-width="0.75" />
+                    <ellipse cx="30" cy="27" rx="2.5" ry="6" stroke="#3B82F6" stroke-width="0.5" fill="none" />
+                    <ellipse cx="30" cy="27" rx="6" ry="1.5" stroke="#3B82F6" stroke-width="0.5" fill="none" />
+                </svg>
             </div>
-          </div>
-          <div class="showcase reveal">
-            <article class="showcase-card glass"><span>USA Visa Expertise</span><h3>Specialized preparation for interviews, DS-160 submission, biometrics, and appointments.</h3></article>
-            <article class="showcase-card glass"><span>Luxury Touring</span><h3>Five-star stays, private vehicles, and itineraries shaped around your pace and preferences.</h3></article>
-            <article class="showcase-card glass"><span>Global Booking Power</span><h3>Cruises, hotels, transfers, and air ticketing across major international routes.</h3></article>
-          </div>
+            <h1 class="font-serif text-3xl md:text-5xl text-ivory tracking-[0.2em] uppercase">PLEASURE GLOBAL</h1>
+            <p class="text-gold-400 text-xs uppercase tracking-[0.4em] mt-3 font-sans">TRAVEL & VISA LLP</p>
         </div>
-      </section>
-      <section class="section">
-        <div class="container">
-          <div class="section-heading reveal">
-            <span class="eyebrow">Featured Destinations</span>
-            <h2>Experiences curated for discerning global travellers</h2>
-            <p>Iconic cities, island escapes, and immersive itineraries presented with a polished luxury travel lens.</p>
-          </div>
-          <div class="destination-grid">
-            <article class="destination-card reveal"><img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=900&q=80" alt="Paris cityscape"><div class="destination-card__overlay"><h3>Paris</h3><p>Artful stays, fine dining, and signature European moments.</p></div></article>
-            <article class="destination-card reveal"><img src="https://images.unsplash.com/photo-1527631746610-bca00a040d60?auto=format&fit=crop&w=900&q=80" alt="Dubai skyline"><div class="destination-card__overlay"><h3>Dubai</h3><p>Luxury desert escapes, retail therapy, and skyline glamour.</p></div></article>
-            <article class="destination-card reveal"><img src="https://images.unsplash.com/photo-1503899036084-c55cdd92da26?auto=format&fit=crop&w=900&q=80" alt="New York skyline"><div class="destination-card__overlay"><h3>New York</h3><p>Fast-paced culture, iconic attractions, and premium city stays.</p></div></article>
-            <article class="destination-card reveal"><img src="https://images.unsplash.com/photo-1516483638261-f4dbaf036963?auto=format&fit=crop&w=900&q=80" alt="Swiss mountains"><div class="destination-card__overlay"><h3>Switzerland</h3><p>Scenic rail journeys, alpine resorts, and tailored leisure routes.</p></div></article>
-          </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed w-full z-40 transition-all duration-500 py-6 border-b border-transparent">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            
+            <!-- Brand Logo Visual (Vector Styled) -->
+            <a href="index.html" class="flex items-center gap-3 group logo-container">
+                <div class="relative w-12 h-10 shrink-0">
+                    <svg class="w-full h-full" viewBox="0 0 60 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="nav-infinity-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#2563EB" />
+                                <stop offset="50%" stop-color="#3B82F6" />
+                                <stop offset="70%" stop-color="#F59E0B" />
+                                <stop offset="100%" stop-color="#D4AF37" />
+                            </linearGradient>
+                        </defs>
+                        <path d="M30 20 C22 10, 10 10, 10 20 C10 30, 22 30, 30 20 C38 10, 50 10, 50 20 C50 30, 38 30, 30 20 Z" 
+                              stroke="url(#nav-infinity-grad)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none" 
+                              class="group-hover:stroke-gold-400 transition-colors duration-500" />
+                        <rect x="8" y="7" width="5" height="7" rx="0.5" transform="rotate(-15 8 7)" fill="#1E3A8A" stroke="#FDFBF7" stroke-width="0.5"/>
+                        <path d="M47 6 L51 9 L49 10 L47 8 L45 8 L46 11 L44 11 L43 8 L42 8 L41 6 Z" fill="#F59E0B" />
+                        <circle cx="30" cy="27" r="6" fill="#0B1120" stroke="#3B82F6" stroke-width="0.75" />
+                        <ellipse cx="30" cy="27" rx="2.5" ry="6" stroke="#3B82F6" stroke-width="0.5" fill="none" />
+                        <ellipse cx="30" cy="27" rx="6" ry="1.5" stroke="#3B82F6" stroke-width="0.5" fill="none" />
+                    </svg>
+                </div>
+                <div class="flex flex-col">
+                    <span class="text-lg md:text-xl font-bold tracking-widest text-ivory logo-text-serif uppercase group-hover:text-gold-400 transition-colors duration-300">
+                        PLEASURE GLOBAL
+                    </span>
+                    <span class="text-[8px] md:text-[9px] uppercase tracking-[0.38em] text-gray-400 logo-text-sans font-sans">
+                        TRAVEL & VISA LLP
+                    </span>
+                </div>
+            </a>
+            
+            <!-- Desktop Menu -->
+            <div class="hidden lg:flex items-center gap-8">
+                <a href="index.html" class="text-xs uppercase tracking-widest text-gold-400 font-semibold">Home</a>
+                <a href="about.html" class="text-xs uppercase tracking-widest text-gray-300 hover:text-gold-400 transition-colors">About Us</a>
+                <a href="visa-services.html" class="text-xs uppercase tracking-widest text-gray-300 hover:text-gold-400 transition-colors">Visa Services</a>
+                <a href="travel-services.html" class="text-xs uppercase tracking-widest text-gray-300 hover:text-gold-400 transition-colors">Travel Services</a>
+                <a href="contact.html" class="px-6 py-2 border border-gold-400 text-gold-400 hover:bg-gold-400 hover:text-navy-900 transition-all duration-300 text-xs uppercase tracking-widest font-semibold rounded-sm">
+                    Plan Trip
+                </a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="lg:hidden text-ivory">
+                <i data-lucide="menu" class="w-8 h-8"></i>
+            </button>
         </div>
-      </section>
-      <section class="section section--narrow">
-        <div class="container">
-          <div class="section-heading reveal"><span class="eyebrow">Testimonials</span><h2>What our clients remember most</h2></div>
-          <div class="testimonial-slider reveal" id="testimonialSlider">
-            <article class="testimonial-slide is-active"><p>“Their USA visa interview preparation was thoughtful, structured, and incredibly reassuring. Every detail felt handled with care.”</p><h3>Riya Malhotra</h3><span>Visitor Visa Client</span></article>
-            <article class="testimonial-slide"><p>“Our family holiday was beautifully coordinated, from flights and hotel bookings to airport transfers. Smooth from start to finish.”</p><h3>Aditya Mehra</h3><span>Luxury Tour Client</span></article>
-            <article class="testimonial-slide"><p>“The team stayed available even during travel changes and late-night airline updates. It felt like having a private travel desk.”</p><h3>Sana Kapoor</h3><span>Frequent International Traveller</span></article>
-          </div>
-          <div class="slider-dots" id="sliderDots" aria-label="Testimonial navigation"></div>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu" class="fixed inset-0 bg-navy-950/95 z-50 transform translate-x-full transition-transform duration-500 flex flex-col justify-center items-center gap-8 backdrop-blur-md">
+        <button id="close-menu" class="absolute top-6 right-6 text-ivory">
+            <i data-lucide="x" class="w-8 h-8"></i>
+        </button>
+        <a href="index.html" class="mobile-link text-2xl font-serif text-gold-400">Home</a>
+        <a href="about.html" class="mobile-link text-2xl font-serif text-ivory hover:text-gold-400">About Us</a>
+        <a href="visa-services.html" class="mobile-link text-2xl font-serif text-ivory hover:text-gold-400">Visa Services</a>
+        <a href="travel-services.html" class="mobile-link text-2xl font-serif text-ivory hover:text-gold-400">Travel Services</a>
+        <a href="contact.html" class="mobile-link px-8 py-3 border border-gold-400 text-gold-400 mt-4 text-lg tracking-widest uppercase font-semibold">Plan Your Trip</a>
+    </div>
+
+    <!-- Hero Section -->
+    <header class="relative h-screen w-full overflow-hidden flex items-center justify-center">
+        <!-- Background Video -->
+        <div class="absolute inset-0 w-full h-full z-0">
+            <video autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?ixlib=rb-4.0.3&auto=format&fit=crop&w=2021&q=80" class="w-full h-full object-cover scale-110">
+                <source src="https://player.vimeo.com/external/451670654.sd.mp4?s=f8d7976e323bc54dcd9fa6916f9b9060b81df487&profile_id=164&oauth2_token_id=57447761" type="video/mp4">
+            </video>
+            <!-- Dark Gradient Overlay -->
+            <div class="absolute inset-0 hero-overlay"></div>
         </div>
-      </section>
-      <section class="section">
-        <div class="container">
-          <div class="cta-banner glass reveal">
-            <div><span class="eyebrow">Next Departure</span><h2>Plan Your Dream Trip Today</h2><p>Let us shape the visa strategy, the itinerary, and the journey details into one seamless premium experience.</p></div>
-            <a class="btn btn--primary" href="#contact">Start Planning</a>
-          </div>
+
+        <!-- Content -->
+        <div class="relative z-10 text-center px-6 max-w-5xl mx-auto mt-16">
+            <p class="reveal-text text-gold-400 text-sm md:text-base uppercase tracking-[0.4em] mb-6 font-medium">Bespoke Concierge & Travel Architects</p>
+            <h1 class="reveal-text font-serif text-5xl md:text-7xl lg:text-8xl text-ivory mb-6 leading-tight">
+                Discover the World <br> <span class="italic font-light">with Pleasure Global</span>
+            </h1>
+            <p class="reveal-text text-gray-300 text-lg md:text-xl max-w-2xl mx-auto mb-10 font-light leading-relaxed">
+                Seamless visa arrangements, customized five-star voyages, and unmatched destination curation tailored exactly to your lifestyle.
+            </p>
+            
+            <div class="reveal-text flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <a href="contact.html" class="btn-gold px-8 py-4 rounded-sm transition-all w-full sm:w-auto">
+                    PLAN YOUR TRIP
+                </a>
+                <a href="travel-services.html" class="btn-outline px-8 py-4 text-ivory tracking-wider text-xs uppercase font-semibold rounded-sm w-full sm:w-auto">
+                    EXPLORE SERVICES
+                </a>
+            </div>
+
+            <!-- Trust Badges -->
+            <div class="reveal-text mt-16 grid grid-cols-2 md:grid-cols-4 gap-8 border-t border-white/10 pt-8 max-w-4xl mx-auto">
+                <div class="text-center">
+                    <h3 class="text-2xl font-serif text-white mb-1 counter" data-target="150">0</h3>
+                    <p class="text-[10px] text-gray-400 uppercase tracking-widest">Global Destinations</p>
+                </div>
+                <div class="text-center">
+                    <h3 class="text-2xl font-serif text-white mb-1 counter" data-target="5000">0</h3>
+                    <p class="text-[10px] text-gray-400 uppercase tracking-widest">Trips Planned</p>
+                </div>
+                <div class="text-center">
+                    <h3 class="text-2xl font-serif text-white mb-1">24/7</h3>
+                    <p class="text-[10px] text-gray-400 uppercase tracking-widest">Travel Support</p>
+                </div>
+                <div class="text-center">
+                    <h3 class="text-2xl font-serif text-white mb-1">100%</h3>
+                    <p class="text-[10px] text-gray-400 uppercase tracking-widest">Bespoke Curation</p>
+                </div>
+            </div>
         </div>
-      </section>
-    </main>
-    <footer class="footer" id="contact">
-      <div class="container footer-grid">
-        <div>
-          <a class="brand brand--footer" href="index.html"><div class="brand-mark"><span class="brand-mark__loop"></span><span class="brand-mark__dot"></span></div><div><strong>Pleasure Global</strong><span>Travel & Visa LLP</span></div></a>
-          <p>Premium visa and travel solutions for clients seeking trusted advice, efficient execution, and elevated journeys.</p>
+
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce text-white/50">
+            <i data-lucide="chevron-down" class="w-6 h-6"></i>
         </div>
-        <div><h3>Quick Links</h3><a href="about.html">About Us</a><a href="visa-services.html">Visa Services</a><a href="travel-services.html">Travel Services</a><a href="index.html#services">Featured Services</a></div>
-        <div><h3>Core Services</h3><a href="visa-services.html#us-visa">US Visa Service</a><a href="visa-services.html#visitor-visa">Visitor Visa Service</a><a href="travel-services.html#tour-packages">Tour Packages</a><a href="travel-services.html#air-tickets">Air Tickets</a></div>
-        <div><h3>Contact</h3><a href="tel:+910000000000">+91 00000 00000</a><a href="mailto:info@pleasureglobaltravel.com">info@pleasureglobaltravel.com</a><span>India based. Serving international travel clients worldwide.</span><div class="socials"><a href="#" aria-label="Instagram"><i class="ri-instagram-line"></i></a><a href="#" aria-label="Facebook"><i class="ri-facebook-circle-line"></i></a><a href="#" aria-label="LinkedIn"><i class="ri-linkedin-box-line"></i></a></div></div>
-      </div>
+    </header>
+
+    <!-- Welcome Section (Elevated Narrative) -->
+    <section class="py-24 bg-navy-950 relative border-b border-white/5">
+        <div class="container mx-auto px-6 max-w-5xl">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
+                <div class="md:col-span-4 border-l-2 border-gold-400 pl-6">
+                    <h2 class="text-gold-400 text-xs uppercase tracking-[0.3em] mb-2 font-sans">Our Mission</h2>
+                    <h3 class="font-serif text-3xl md:text-4xl text-ivory">Designing journeys that resonate with your soul</h3>
+                </div>
+                <div class="md:col-span-8">
+                    <p class="text-gray-300 text-base md:text-lg font-light leading-relaxed mb-6">
+                        At Pleasure Global Travel & Visa LLP, we believe that travel is an art form. We do not offer cookie-cutter travel packages. Instead, we architect bespoke voyages that blend comfort, elegance, and culture seamlessly.
+                    </p>
+                    <p class="text-gray-400 text-sm font-light leading-relaxed mb-6">
+                        From navigating complex international visa pathways (including US and tourist visas) to mapping out custom yacht charters and securing reservations at exclusive resorts, our team orchestrates every single detail with precision.
+                    </p>
+                    <a href="about.html" class="inline-flex items-center gap-2 text-gold-400 hover:text-white transition-colors text-sm uppercase tracking-widest font-semibold">
+                        Read Our Story <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Overview Slider -->
+    <section id="services" class="py-24 bg-navy-900 relative overflow-hidden">
+        <div class="container mx-auto px-6 mb-16 relative z-10">
+            <div class="flex flex-col md:flex-row justify-between items-end gap-6">
+                <div>
+                    <h2 class="text-gold-400 text-xs uppercase tracking-[0.3em] mb-2">Exclusive Offerings</h2>
+                    <h3 class="font-serif text-4xl md:text-5xl text-ivory">Bespoke Travel Categories</h3>
+                </div>
+                <div class="text-gray-400 max-w-xs md:text-right text-sm font-light">
+                    Every journey is unique. Select a category below to explore details or inquire directly with a consultant.
+                </div>
+            </div>
+        </div>
+
+        <!-- Horizontal Scroll Wrapper -->
+        <div class="relative w-full overflow-x-auto pb-12 hide-scrollbar">
+            <div class="flex gap-6 px-6 md:px-20 min-w-max" id="services-track">
+                
+                <!-- Visa Services Card -->
+                <div onclick="window.location.href='visa-services.html'" class="service-card relative w-[300px] md:w-[360px] h-[480px] rounded-lg overflow-hidden group cursor-pointer border border-white/5">
+                    <div class="img-zoom-container absolute inset-0">
+                        <img src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Visa Assistance" class="w-full h-full object-cover">
+                    </div>
+                    <div class="card-content absolute inset-0 flex flex-col justify-end p-8">
+                        <div class="transform translate-y-6 group-hover:translate-y-0 transition-transform duration-500">
+                            <span class="text-gold-400 text-[10px] tracking-widest uppercase mb-2 block">Specialized Assistance</span>
+                            <h4 class="font-serif text-2xl text-ivory mb-2">Visa Solutions</h4>
+                            <p class="text-gray-300 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100 line-clamp-3">
+                                Seamless US visa processing, visitor documentation, and global immigration support curated by experts.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tour Packages Card -->
+                <div onclick="window.location.href='travel-services.html#tours'" class="service-card relative w-[300px] md:w-[360px] h-[480px] rounded-lg overflow-hidden group cursor-pointer border border-white/5">
+                    <div class="img-zoom-container absolute inset-0">
+                        <img src="https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Luxury Tours" class="w-full h-full object-cover">
+                    </div>
+                    <div class="card-content absolute inset-0 flex flex-col justify-end p-8">
+                        <div class="transform translate-y-6 group-hover:translate-y-0 transition-transform duration-500">
+                            <span class="text-gold-400 text-[10px] tracking-widest uppercase mb-2 block">Curated Voyages</span>
+                            <h4 class="font-serif text-2xl text-ivory mb-2">Luxury Tour Packages</h4>
+                            <p class="text-gray-300 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100 line-clamp-3">
+                                Private tailor-made itineraries traversing global architectural, historical, and culinary masterpieces.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hotel Bookings Card -->
+                <div onclick="window.location.href='travel-services.html#hotels'" class="service-card relative w-[300px] md:w-[360px] h-[480px] rounded-lg overflow-hidden group cursor-pointer border border-white/5">
+                    <div class="img-zoom-container absolute inset-0">
+                        <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="5-Star Hotel Booking" class="w-full h-full object-cover">
+                    </div>
+                    <div class="card-content absolute inset-0 flex flex-col justify-end p-8">
+                        <div class="transform translate-y-6 group-hover:translate-y-0 transition-transform duration-500">
+                            <span class="text-gold-400 text-[10px] tracking-widest uppercase mb-2 block">Exclusive Stays</span>
+                            <h4 class="font-serif text-2xl text-ivory mb-2">Elite Hotel Bookings</h4>
+                            <p class="text-gray-300 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100 line-clamp-3">
+                                Preferred rates, room upgrades, and VIP amenities at the world’s most coveted 5-star hotels and villas.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cruise Booking Card -->
+                <div onclick="window.location.href='travel-services.html#cruise'" class="service-card relative w-[300px] md:w-[360px] h-[480px] rounded-lg overflow-hidden group cursor-pointer border border-white/5">
+                    <div class="img-zoom-container absolute inset-0">
+                        <img src="https://images.unsplash.com/photo-1559136555-9303baea8ebd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Cruises" class="w-full h-full object-cover">
+                    </div>
+                    <div class="card-content absolute inset-0 flex flex-col justify-end p-8">
+                        <div class="transform translate-y-6 group-hover:translate-y-0 transition-transform duration-500">
+                            <span class="text-gold-400 text-[10px] tracking-widest uppercase mb-2 block">Private Waters</span>
+                            <h4 class="font-serif text-2xl text-ivory mb-2">Luxury Cruise Bookings</h4>
+                            <p class="text-gray-300 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100 line-clamp-3">
+                                Experience remote islands and historical bays aboard ultra-luxury cruise liners and private yachts.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Out of Station Cabs Card -->
+                <div onclick="window.location.href='travel-services.html#cabs'" class="service-card relative w-[300px] md:w-[360px] h-[480px] rounded-lg overflow-hidden group cursor-pointer border border-white/5">
+                    <div class="img-zoom-container absolute inset-0">
+                        <img src="https://images.unsplash.com/photo-1527664557558-88f450f39785?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Cabs & Transfers" class="w-full h-full object-cover">
+                    </div>
+                    <div class="card-content absolute inset-0 flex flex-col justify-end p-8">
+                        <div class="transform translate-y-6 group-hover:translate-y-0 transition-transform duration-500">
+                            <span class="text-gold-400 text-[10px] tracking-widest uppercase mb-2 block">Premium Logistics</span>
+                            <h4 class="font-serif text-2xl text-ivory mb-2">Executive Transfers</h4>
+                            <p class="text-gray-300 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100 line-clamp-3">
+                                Out-of-station private chauffeurs and seamless luxury airport transfers in modern executive vehicles.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Air Tickets Card -->
+                <div onclick="window.location.href='travel-services.html#flights'" class="service-card relative w-[300px] md:w-[360px] h-[480px] rounded-lg overflow-hidden group cursor-pointer border border-white/5">
+                    <div class="img-zoom-container absolute inset-0">
+                        <img src="https://images.unsplash.com/photo-1569003339405-ea396a5a8a90?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Air Tickets" class="w-full h-full object-cover">
+                    </div>
+                    <div class="card-content absolute inset-0 flex flex-col justify-end p-8">
+                        <div class="transform translate-y-6 group-hover:translate-y-0 transition-transform duration-500">
+                            <span class="text-gold-400 text-[10px] tracking-widest uppercase mb-2 block">Premium Class Flights</span>
+                            <h4 class="font-serif text-2xl text-ivory mb-2">First & Business Class</h4>
+                            <p class="text-gray-300 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100 line-clamp-3">
+                                Priority airline ticketing services offering premium routing, corporate rates, and private jet solutions.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section id="why-us" class="py-24 bg-navy-800 relative">
+        <div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-navy-900 to-transparent opacity-50 pointer-events-none"></div>
+        
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <!-- Left: Text & Features -->
+                <div>
+                    <h2 class="text-gold-400 text-xs uppercase tracking-[0.3em] mb-2">The Premium Difference</h2>
+                    <h3 class="font-serif text-4xl md:text-5xl text-ivory mb-8">Why Pleasure Global</h3>
+                    <p class="text-gray-400 mb-10 leading-relaxed font-light">
+                        We don't just book travel; we engineer memories. Every itinerary undergoes a thorough quality audit by our dedicated concierge specialists to ensure perfection.
+                    </p>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <!-- Feature 1 -->
+                        <div class="flex gap-4 group">
+                            <div class="w-12 h-12 rounded-full border border-gold-400/30 flex items-center justify-center shrink-0 group-hover:bg-gold-400/10 transition-colors">
+                                <i data-lucide="map" class="text-gold-400 w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-serif text-xl text-ivory mb-1">Tailored Architecture</h4>
+                                <p class="text-gray-500 text-sm font-light">Personalized planning that maps exactly to your preferences and pacing.</p>
+                            </div>
+                        </div>
+                        <!-- Feature 2 -->
+                        <div class="flex gap-4 group">
+                            <div class="w-12 h-12 rounded-full border border-gold-400/30 flex items-center justify-center shrink-0 group-hover:bg-gold-400/10 transition-colors">
+                                <i data-lucide="shield-check" class="text-gold-400 w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-serif text-xl text-ivory mb-1">Elite Global Partners</h4>
+                                <p class="text-gray-500 text-sm font-light">Direct connections with 5-star general managers and private transport.</p>
+                            </div>
+                        </div>
+                        <!-- Feature 3 -->
+                        <div class="flex gap-4 group">
+                            <div class="w-12 h-12 rounded-full border border-gold-400/30 flex items-center justify-center shrink-0 group-hover:bg-gold-400/10 transition-colors">
+                                <i data-lucide="stamp" class="text-gold-400 w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-serif text-xl text-ivory mb-1">End-to-End Visa Processing</h4>
+                                <p class="text-gray-500 text-sm font-light">Handling complicated documentation and visa interviews effortlessly.</p>
+                            </div>
+                        </div>
+                        <!-- Feature 4 -->
+                        <div class="flex gap-4 group">
+                            <div class="w-12 h-12 rounded-full border border-gold-400/30 flex items-center justify-center shrink-0 group-hover:bg-gold-400/10 transition-colors">
+                                <i data-lucide="sun" class="text-gold-400 w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-serif text-xl text-ivory mb-1">Exclusive Value Rates</h4>
+                                <p class="text-gray-500 text-sm font-light">Access to off-market pricing and unique cabin availability guides.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Parallax Image -->
+                <div class="relative h-[550px] rounded-lg overflow-hidden reveal-image border border-white/10">
+                    <div class="absolute inset-0 bg-gold-400/5 mix-blend-overlay z-10"></div>
+                    <img src="https://images.unsplash.com/photo-1530789253388-582c481c54b0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Luxury Travel Map" class="w-full h-full object-cover">
+                    <!-- Floating Card -->
+                    <div class="absolute bottom-10 left-6 right-6 bg-navy-950/70 backdrop-blur-md p-6 rounded border border-white/10 z-20">
+                        <p class="font-serif text-xl md:text-2xl text-ivory italic">"The world is a book, and those who do not travel read only one page."</p>
+                        <p class="text-gold-400 mt-3 text-xs tracking-widest uppercase font-semibold font-sans">— St. Augustine</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Experiences (Cinematic Panels) -->
+    <section id="experiences" class="py-24 bg-navy-900 border-t border-b border-white/5">
+        <div class="container mx-auto px-6 text-center mb-16">
+            <h2 class="text-gold-400 text-xs uppercase tracking-[0.3em] mb-2">Curated Inspirations</h2>
+            <h3 class="font-serif text-4xl md:text-6xl text-ivory">Aspirational Journeys</h3>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 px-4 md:px-12 auto-rows-[380px]">
+            
+            <!-- Large Panel -->
+            <div class="col-span-1 md:col-span-2 lg:col-span-2 relative rounded-xl overflow-hidden group reveal-card border border-white/5">
+                <div class="img-zoom-container absolute inset-0">
+                    <img src="https://images.unsplash.com/photo-1596895111956-bf1cf0599ce5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" class="w-full h-full object-cover" alt="Santorini, Greece">
+                </div>
+                <div class="absolute inset-0 bg-gradient-to-t from-navy-950/90 via-navy-950/20 to-transparent"></div>
+                <div class="absolute bottom-0 left-0 p-8">
+                    <span class="bg-gold-500 text-navy-900 text-[10px] font-bold px-3 py-1 rounded-sm mb-3 inline-block tracking-widest uppercase font-sans">Mediterranean Sunset</span>
+                    <h4 class="font-serif text-3xl text-white">Santorini Villa Escapes</h4>
+                    <p class="text-gray-300 mt-2 max-w-md text-sm font-light">Experience caldera views, infinity pools, and candle-lit wine excursions overlooking the Aegean Sea.</p>
+                </div>
+            </div>
+
+            <!-- Small Panel -->
+            <div class="relative rounded-xl overflow-hidden group reveal-card border border-white/5">
+                <div class="img-zoom-container absolute inset-0">
+                    <img src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover" alt="Swiss Alps">
+                </div>
+                <div class="absolute inset-0 bg-gradient-to-t from-navy-950/90 via-navy-950/10 to-transparent"></div>
+                <div class="absolute bottom-0 left-0 p-6">
+                    <span class="text-gold-400 text-[10px] tracking-widest uppercase font-semibold font-sans mb-1 block">Swiss Alpine</span>
+                    <h4 class="font-serif text-2xl text-white">St. Moritz Chalet Retreats</h4>
+                </div>
+            </div>
+
+            <!-- Small Panel -->
+            <div class="relative rounded-xl overflow-hidden group reveal-card border border-white/5">
+                <div class="img-zoom-container absolute inset-0">
+                    <img src="https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover" alt="Tokyo">
+                </div>
+                <div class="absolute inset-0 bg-gradient-to-t from-navy-950/90 via-navy-950/10 to-transparent"></div>
+                <div class="absolute bottom-0 left-0 p-6">
+                    <span class="text-gold-400 text-[10px] tracking-widest uppercase font-semibold font-sans mb-1 block">Modern Asia</span>
+                    <h4 class="font-serif text-2xl text-white">Tokyo Neo-Classic Tour</h4>
+                </div>
+            </div>
+
+            <!-- Large Panel -->
+            <div class="col-span-1 md:col-span-2 relative rounded-xl overflow-hidden group reveal-card border border-white/5">
+                <div class="img-zoom-container absolute inset-0">
+                    <img src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" class="w-full h-full object-cover" alt="Kyoto Temples">
+                </div>
+                <div class="absolute inset-0 bg-gradient-to-t from-navy-950/90 via-navy-950/20 to-transparent"></div>
+                <div class="absolute bottom-0 left-0 p-8">
+                    <span class="bg-gold-500 text-navy-900 text-[10px] font-bold px-3 py-1 rounded-sm mb-3 inline-block tracking-widest uppercase font-sans">Cultural Heritage</span>
+                    <h4 class="font-serif text-3xl text-white">Kyoto Zen Explorations</h4>
+                    <p class="text-gray-300 mt-2 max-w-md text-sm font-light">Walk along private paths in historic temples and enjoy private tea ceremonies with Geisha historians.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-24 bg-navy-800 relative overflow-hidden">
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="text-center mb-16">
+                <h2 class="text-gold-400 text-xs uppercase tracking-[0.3em] mb-2 font-sans">Testimonials</h2>
+                <h3 class="font-serif text-4xl md:text-5xl text-ivory">Traveler Stories</h3>
+            </div>
+
+            <!-- Carousel Container -->
+            <div class="relative max-w-4xl mx-auto h-[320px] md:h-[230px]" id="testimonial-container">
+                
+                <!-- Slide 1 -->
+                <div class="testimonial-slide active flex flex-col items-center text-center px-4">
+                    <div class="mb-4 text-gold-400">
+                        <i data-lucide="quote" class="w-10 h-10 fill-current"></i>
+                    </div>
+                    <p class="text-lg md:text-2xl font-light text-gray-200 italic mb-6 leading-relaxed">
+                        "Pleasure Global turned our honeymoon into an absolute masterpiece. Every single detail was flawlessly executed, from private jet connections to welcoming treats at every resort."
+                    </p>
+                    <div class="flex items-center gap-4">
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Elena Rodriguez" class="w-12 h-12 rounded-full border-2 border-gold-400 object-cover">
+                        <div class="text-left">
+                            <p class="text-ivory font-medium font-sans text-sm">Elena Rodriguez</p>
+                            <p class="text-gray-500 text-xs font-sans">Milan, Italy</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 2 -->
+                <div class="testimonial-slide flex flex-col items-center text-center px-4">
+                    <div class="mb-4 text-gold-400">
+                        <i data-lucide="quote" class="w-10 h-10 fill-current"></i>
+                    </div>
+                    <p class="text-lg md:text-2xl font-light text-gray-200 italic mb-6 leading-relaxed">
+                        "Managing corporate logistics for our top executives is a major challenge. Pleasure Global is our secret weapon. Always prompt, luxury-focused, and highly reliable."
+                    </p>
+                    <div class="flex items-center gap-4">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="James Thornton" class="w-12 h-12 rounded-full border-2 border-gold-400 object-cover">
+                        <div class="text-left">
+                            <p class="text-ivory font-medium font-sans text-sm">James Thornton</p>
+                            <p class="text-gray-500 text-xs font-sans">New York, USA</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 3 -->
+                <div class="testimonial-slide flex flex-col items-center text-center px-4">
+                    <div class="mb-4 text-gold-400">
+                        <i data-lucide="quote" class="w-10 h-10 fill-current"></i>
+                    </div>
+                    <p class="text-lg md:text-2xl font-light text-gray-200 italic mb-6 leading-relaxed">
+                        "Their visa concierge service saved me so many weeks of stressful paperwork. I got my visa approved in record time and could focus on my vacation plans. Highly recommended!"
+                    </p>
+                    <div class="flex items-center gap-4">
+                        <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Sarah & Mike Chen" class="w-12 h-12 rounded-full border-2 border-gold-400 object-cover">
+                        <div class="text-left">
+                            <p class="text-ivory font-medium font-sans text-sm">Sarah & Mike Chen</p>
+                            <p class="text-gray-500 text-xs font-sans">Sydney, Australia</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Controls -->
+            <div class="flex justify-center gap-4 mt-8">
+                <button id="prev-testi" class="p-3 rounded-full border border-white/20 hover:bg-gold-400 hover:text-navy-900 hover:border-gold-400 transition-all text-white">
+                    <i data-lucide="arrow-left" class="w-4 h-4"></i>
+                </button>
+                <button id="next-testi" class="p-3 rounded-full border border-white/20 hover:bg-gold-400 hover:text-navy-900 hover:border-gold-400 transition-all text-white">
+                    <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Inquiry CTA Section -->
+    <section class="relative py-24 min-h-[60vh] flex items-center justify-center">
+        <!-- Background Image -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80" alt="Mountain Horizon" class="w-full h-full object-cover opacity-15">
+            <div class="absolute inset-0 bg-navy-900/90"></div>
+        </div>
+
+        <div class="container mx-auto px-6 relative z-10 text-center max-w-3xl">
+            <h2 class="text-gold-400 text-xs uppercase tracking-[0.3em] mb-4">Start Your Expedition</h2>
+            <h3 class="font-serif text-4xl md:text-5xl lg:text-6xl text-ivory mb-6 leading-tight">Your next luxury chapter awaits</h3>
+            <p class="text-gray-300 text-base md:text-lg mb-10 font-light leading-relaxed">
+                Connect with our luxury consultants today. Let us tailor a journey that reflects your standards, values, and travel expectations.
+            </p>
+            <a href="contact.html" class="btn-gold px-12 py-5 rounded-sm transition-all inline-block">
+                REQUEST A BESPOKE TRAVEL PLAN
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-navy-950 border-t border-white/5 py-16">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+                <!-- Col 1: Brand -->
+                <div class="md:col-span-2">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-10 h-8">
+                            <svg class="w-full h-full" viewBox="0 0 60 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M30 20 C22 10, 10 10, 10 20 C10 30, 22 30, 30 20 C38 10, 50 10, 50 20 C50 30, 38 30, 30 20 Z" 
+                                      stroke="#D4AF37" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+                                <rect x="8" y="7" width="5" height="7" rx="0.5" transform="rotate(-15 8 7)" fill="#1E3A8A" stroke="#FDFBF7" stroke-width="0.5"/>
+                                <path d="M47 6 L51 9 L49 10 L47 8 L45 8 L46 11 L44 11 L43 8 L42 8 L41 6 Z" fill="#F59E0B" />
+                                <circle cx="30" cy="27" r="6" fill="#070b14" stroke="#3B82F6" stroke-width="0.75" />
+                            </svg>
+                        </div>
+                        <div class="flex flex-col">
+                            <span class="text-base font-bold tracking-widest text-ivory uppercase font-serif">
+                                PLEASURE GLOBAL
+                            </span>
+                            <span class="text-[7px] uppercase tracking-[0.38em] text-gray-500 font-sans">
+                                TRAVEL & VISA LLP
+                            </span>
+                        </div>
+                    </div>
+                    <p class="text-gray-500 text-sm max-w-sm font-light leading-relaxed mb-6">
+                        Architecting bespoke journeys, premium flights, and elite visa clearances for travelers seeking a flawless luxury experience.
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="#" class="w-8 h-8 rounded-full border border-white/10 hover:border-gold-400 hover:text-gold-400 transition-colors flex items-center justify-center text-gray-400"><i data-lucide="instagram" class="w-4 h-4"></i></a>
+                        <a href="#" class="w-8 h-8 rounded-full border border-white/10 hover:border-gold-400 hover:text-gold-400 transition-colors flex items-center justify-center text-gray-400"><i data-lucide="facebook" class="w-4 h-4"></i></a>
+                        <a href="#" class="w-8 h-8 rounded-full border border-white/10 hover:border-gold-400 hover:text-gold-400 transition-colors flex items-center justify-center text-gray-400"><i data-lucide="twitter" class="w-4 h-4"></i></a>
+                    </div>
+                </div>
+
+                <!-- Col 2: Navigation Links -->
+                <div>
+                    <h4 class="font-serif text-white text-base mb-6 tracking-wide">Explore</h4>
+                    <ul class="space-y-3 text-sm text-gray-400 font-light">
+                        <li><a href="index.html" class="hover:text-gold-400 transition-colors">Home</a></li>
+                        <li><a href="about.html" class="hover:text-gold-400 transition-colors">About Us</a></li>
+                        <li><a href="visa-services.html" class="hover:text-gold-400 transition-colors">Visa Services</a></li>
+                        <li><a href="travel-services.html" class="hover:text-gold-400 transition-colors">Travel Services</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3: Contact details -->
+                <div>
+                    <h4 class="font-serif text-white text-base mb-6 tracking-wide">Concierge Office</h4>
+                    <ul class="space-y-4 text-sm text-gray-400 font-light">
+                        <li class="flex items-center gap-3">
+                            <i data-lucide="mail" class="text-gold-400 w-4 h-4 shrink-0"></i>
+                            <span class="text-xs">concierge@pleasureglobals.com</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i data-lucide="phone" class="text-gold-400 w-4 h-4 shrink-0"></i>
+                            <span class="text-xs">+1 (555) 012-3456</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="map-pin" class="text-gold-400 w-4 h-4 shrink-0 mt-0.5"></i>
+                            <span class="text-xs leading-normal">Global Headquarters,<br>Manhattan, NY 10001</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-gray-600 text-xs font-sans tracking-widest">
+                <div>
+                    &copy; 2026 Pleasure Global Travel & Visa LLP. All rights reserved.
+                </div>
+                <div class="flex gap-6">
+                    <a href="#" class="hover:text-gray-400 transition-colors">Terms</a>
+                    <a href="#" class="hover:text-gray-400 transition-colors">Privacy Policy</a>
+                </div>
+            </div>
+        </div>
     </footer>
-  </div>
-  <script src="assets/js/main.js"></script>
+
+    <!-- Main JavaScript Logic -->
+    <script src="app.js"></script>
 </body>
 </html>
-

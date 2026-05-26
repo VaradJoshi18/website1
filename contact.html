@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Pleasure Global Travel & Visa LLP</title>
+    <meta name="description" content="Inquire with the travel architects at Pleasure Global. Fill out our concierge intake form to begin planning your bespoke journey.">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- GSAP & ScrollTrigger -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    
+    <!-- Lenis Smooth Scroll -->
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Custom Luxury Theme CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: {
+                            950: '#070b14',
+                            900: '#0B1120',
+                            800: '#151E32',
+                            700: '#1E293B',
+                        },
+                        gold: {
+                            300: '#EED790',
+                            400: '#D4AF37',
+                            500: '#C59B2D',
+                            600: '#B8922E',
+                        },
+                        ivory: '#FDFBF7',
+                    },
+                    fontFamily: {
+                        serif: ['"Playfair Display"', 'serif'],
+                        sans: ['"Inter"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="antialiased selection:bg-gold-500 selection:text-white">
+
+    <!-- Noise Overlay -->
+    <div class="noise-bg"></div>
+
+    <!-- Loader -->
+    <div class="loader" id="loader">
+        <div class="text-center flex flex-col items-center">
+            <div class="mb-6 scale-125">
+                <svg class="w-16 h-12" viewBox="0 0 60 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="loader-infinity-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#2563EB" />
+                            <stop offset="50%" stop-color="#3B82F6" />
+                            <stop offset="70%" stop-color="#F59E0B" />
+                            <stop offset="100%" stop-color="#D4AF37" />
+                        </linearGradient>
+                    </defs>
+                    <path d="M30 20 C22 10, 10 10, 10 20 C10 30, 22 30, 30 20 C38 10, 50 10, 50 20 C50 30, 38 30, 30 20 Z" 
+                          stroke="url(#loader-infinity-grad)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+                    <rect x="8" y="7" width="5" height="7" rx="0.5" transform="rotate(-15 8 7)" fill="#1E3A8A" stroke="#FDFBF7" stroke-width="0.5"/>
+                    <path d="M47 6 L51 9 L49 10 L47 8 L45 8 L46 11 L44 11 L43 8 L42 8 L41 6 Z" fill="#F59E0B" />
+                    <circle cx="30" cy="27" r="6" fill="#070b14" stroke="#3B82F6" stroke-width="0.75" />
+                    <ellipse cx="30" cy="27" rx="2.5" ry="6" stroke="#3B82F6" stroke-width="0.5" fill="none" />
+                    <ellipse cx="30" cy="27" rx="6" ry="1.5" stroke="#3B82F6" stroke-width="0.5" fill="none" />
+                </svg>
+            </div>
+            <h1 class="font-serif text-2xl md:text-4xl text-ivory tracking-[0.2em] uppercase">PLEASURE GLOBAL</h1>
+            <p class="text-gold-400 text-xs uppercase tracking-[0.4em] mt-3 font-sans">TRAVEL & VISA LLP</p>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed w-full z-40 transition-all duration-500 py-6 border-b border-transparent">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            
+            <!-- Brand Logo Visual -->
+            <a href="index.html" class="flex items-center gap-3 group logo-container">
+                <div class="relative w-12 h-10 shrink-0">
+                    <svg class="w-full h-full" viewBox="0 0 60 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="nav-infinity-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#2563EB" />
+                                <stop offset="50%" stop-color="#3B82F6" />
+                                <stop offset="70%" stop-color="#F59E0B" />
+                                <stop offset="100%" stop-color="#D4AF37" />
+                            </linearGradient>
+                        </defs>
+                        <path d="M30 20 C22 10, 10 10, 10 20 C10 30, 22 30, 30 20 C38 10, 50 10, 50 20 C50 30, 38 30, 30 20 Z" 
+                              stroke="url(#nav-infinity-grad)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none" 
+                              class="group-hover:stroke-gold-400 transition-colors duration-500" />
+                        <rect x="8" y="7" width="5" height="7" rx="0.5" transform="rotate(-15 8 7)" fill="#1E3A8A" stroke="#FDFBF7" stroke-width="0.5"/>
+                        <path d="M47 6 L51 9 L49 10 L47 8 L45 8 L46 11 L44 11 L43 8 L42 8 L41 6 Z" fill="#F59E0B" />
+                        <circle cx="30" cy="27" r="6" fill="#0B1120" stroke="#3B82F6" stroke-width="0.75" />
+                        <ellipse cx="30" cy="27" rx="2.5" ry="6" stroke="#3B82F6" stroke-width="0.5" fill="none" />
+                        <ellipse cx="30" cy="27" rx="6" ry="1.5" stroke="#3B82F6" stroke-width="0.5" fill="none" />
+                    </svg>
+                </div>
+                <div class="flex flex-col">
+                    <span class="text-lg md:text-xl font-bold tracking-widest text-ivory logo-text-serif uppercase group-hover:text-gold-400 transition-colors duration-300">
+                        PLEASURE GLOBAL
+                    </span>
+                    <span class="text-[8px] md:text-[9px] uppercase tracking-[0.38em] text-gray-400 logo-text-sans font-sans">
+                        TRAVEL & VISA LLP
+                    </span>
+                </div>
+            </a>
+            
+            <!-- Desktop Menu -->
+            <div class="hidden lg:flex items-center gap-8">
+                <a href="index.html" class="text-xs uppercase tracking-widest text-gray-300 hover:text-gold-400 transition-colors">Home</a>
+                <a href="about.html" class="text-xs uppercase tracking-widest text-gray-300 hover:text-gold-400 transition-colors">About Us</a>
+                <a href="visa-services.html" class="text-xs uppercase tracking-widest text-gray-300 hover:text-gold-400 transition-colors">Visa Services</a>
+                <a href="travel-services.html" class="text-xs uppercase tracking-widest text-gray-300 hover:text-gold-400 transition-colors">Travel Services</a>
+                <a href="contact.html" class="px-6 py-2 border border-gold-400 bg-gold-400 text-navy-900 transition-all duration-300 text-xs uppercase tracking-widest font-semibold rounded-sm shadow-lg shadow-gold-500/20">
+                    Plan Trip
+                </a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="lg:hidden text-ivory">
+                <i data-lucide="menu" class="w-8 h-8"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu" class="fixed inset-0 bg-navy-950/95 z-50 transform translate-x-full transition-transform duration-500 flex flex-col justify-center items-center gap-8 backdrop-blur-md">
+        <button id="close-menu" class="absolute top-6 right-6 text-ivory">
+            <i data-lucide="x" class="w-8 h-8"></i>
+        </button>
+        <a href="index.html" class="mobile-link text-2xl font-serif text-ivory hover:text-gold-400">Home</a>
+        <a href="about.html" class="mobile-link text-2xl font-serif text-ivory hover:text-gold-400">About Us</a>
+        <a href="visa-services.html" class="mobile-link text-2xl font-serif text-ivory hover:text-gold-400">Visa Services</a>
+        <a href="travel-services.html" class="mobile-link text-2xl font-serif text-ivory hover:text-gold-400">Travel Services</a>
+        <a href="contact.html" class="mobile-link px-8 py-3 border border-gold-400 text-gold-400 mt-4 text-lg tracking-widest uppercase font-semibold">Plan Your Trip</a>
+    </div>
+
+    <!-- Inner Page Header -->
+    <header class="relative h-[45vh] w-full overflow-hidden flex items-center justify-center border-b border-white/5">
+        <!-- Background Image -->
+        <div class="absolute inset-0 w-full h-full z-0">
+            <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" alt="Mountain Peak" class="w-full h-full object-cover fixed-bg opacity-20 scale-110">
+            <!-- Gradient Overlay -->
+            <div class="absolute inset-0 bg-gradient-to-b from-navy-900/30 via-navy-900/70 to-navy-900"></div>
+        </div>
+
+        <!-- Header Content -->
+        <div class="relative z-10 text-center px-6 max-w-4xl mx-auto mt-20">
+            <p class="reveal-text text-gold-400 text-xs md:text-sm uppercase tracking-[0.4em] mb-4 font-medium">Concierge Direct Hotline</p>
+            <h1 class="reveal-text font-serif text-4xl md:text-5xl text-ivory leading-tight mb-4">
+                Begin Your Journey
+            </h1>
+            <div class="reveal-text w-16 h-0.5 bg-gold-400 mx-auto mt-6"></div>
+        </div>
+    </header>
+
+    <!-- Main Content & Inquiry Intake Wizard -->
+    <section class="py-20 bg-navy-900 relative">
+        <div class="container mx-auto px-6 max-w-6xl">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-stretch">
+                
+                <!-- Left: Direct Office Contact Info -->
+                <div class="lg:col-span-4 flex flex-col justify-between py-2 border-l border-white/10 pl-6 lg:pl-10 space-y-12">
+                    <div class="space-y-6">
+                        <span class="text-gold-400 text-[10px] uppercase tracking-widest font-sans font-bold">Contact Directory</span>
+                        <h2 class="font-serif text-3xl text-white">Direct Channels</h2>
+                        <p class="text-gray-400 text-sm font-light leading-relaxed">
+                            Should you require immediate consultation, reach out to our dedicated concierge staff via email, phone, or schedule a physical appointment.
+                        </p>
+                    </div>
+
+                    <div class="space-y-8 text-sm font-light text-gray-300">
+                        <div class="flex items-start gap-4">
+                            <i data-lucide="mail" class="text-gold-400 w-5 h-5 shrink-0 mt-0.5"></i>
+                            <div>
+                                <h4 class="font-serif text-white text-base">Inquiries</h4>
+                                <p class="text-xs text-gray-400 mt-1">concierge@pleasureglobals.com</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <i data-lucide="phone" class="text-gold-400 w-5 h-5 shrink-0 mt-0.5"></i>
+                            <div>
+                                <h4 class="font-serif text-white text-base">Hotline</h4>
+                                <p class="text-xs text-gray-400 mt-1">+1 (555) 012-3456</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <i data-lucide="map-pin" class="text-gold-400 w-5 h-5 shrink-0 mt-0.5"></i>
+                            <div>
+                                <h4 class="font-serif text-white text-base">Headquarters</h4>
+                                <p class="text-xs text-gray-400 mt-1 leading-relaxed">Global Concierge Headquarters,<br>Manhattan, NY 10001</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pt-6 border-t border-white/5 text-[10px] text-gray-500 uppercase tracking-widest font-sans">
+                        Pleasure Global Travel & Visa LLP<br>Registered Office &bull; NY License No. 4402129
+                    </div>
+                </div>
+
+                <!-- Right: High-Fidelity Intake Form Wizard (Custom Google Form style, but million-dollar UI) -->
+                <div class="lg:col-span-8 bg-navy-800/40 backdrop-blur-xl p-8 md:p-12 rounded-2xl border border-white/5 shadow-2xl relative overflow-hidden flex flex-col justify-between min-h-[600px] reveal-form">
+                    
+                    <!-- Wizard Header/Indicator -->
+                    <div class="flex items-center justify-between pb-8 border-b border-white/5 mb-8">
+                        <div>
+                            <span class="text-gold-400 text-[10px] uppercase tracking-widest font-sans font-bold">Step <span id="current-step-num">1</span> of 3</span>
+                            <h3 class="font-serif text-xl text-white mt-1" id="step-title">Select Your Request</h3>
+                        </div>
+                        <!-- Step Dots -->
+                        <div class="flex gap-2">
+                            <div class="step-dot active" id="dot-1"></div>
+                            <div class="step-dot" id="dot-2"></div>
+                            <div class="step-dot" id="dot-3"></div>
+                        </div>
+                    </div>
+
+                    <!-- Wizard Form -->
+                    <form id="intake-form" class="flex-grow flex flex-col justify-between" onsubmit="handleFormSubmit(event)">
+                        
+                        <!-- STEP 1: Select Service Interested -->
+                        <div class="step-section space-y-6" id="step-section-1">
+                            <label class="text-xs uppercase tracking-widest text-gray-400 font-medium block">What services can we assist you with?</label>
+                            
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <!-- Option 1 -->
+                                <div onclick="toggleCardSelection(this, 'US Visa')" class="glass-panel p-5 rounded-lg border border-white/5 hover:border-gold-400/30 transition-all duration-300 cursor-pointer flex items-center justify-between group select-card">
+                                    <div class="flex items-center gap-3">
+                                        <i data-lucide="stamp" class="text-gold-400 w-5 h-5 shrink-0 group-hover:scale-110 transition-transform"></i>
+                                        <div>
+                                            <h4 class="font-serif text-sm font-semibold text-white">US Visa Service</h4>
+                                            <p class="text-gray-500 text-[10px] font-sans">Consular prep & filling</p>
+                                        </div>
+                                    </div>
+                                    <div class="w-5 h-5 rounded-full border border-white/20 flex items-center justify-center bg-transparent shrink-0 checkbox-indicator">
+                                        <i data-lucide="check" class="w-3 h-3 text-gold-400 hidden"></i>
+                                    </div>
+                                </div>
+                                <!-- Option 2 -->
+                                <div onclick="toggleCardSelection(this, 'Visitors Visa')" class="glass-panel p-5 rounded-lg border border-white/5 hover:border-gold-400/30 transition-all duration-300 cursor-pointer flex items-center justify-between group select-card">
+                                    <div class="flex items-center gap-3">
+                                        <i data-lucide="globe" class="text-gold-400 w-5 h-5 shrink-0 group-hover:scale-110 transition-transform"></i>
+                                        <div>
+                                            <h4 class="font-serif text-sm font-semibold text-white">Visitors Visa Service</h4>
+                                            <p class="text-gray-500 text-[10px] font-sans">Schengen, UK, Canada</p>
+                                        </div>
+                                    </div>
+                                    <div class="w-5 h-5 rounded-full border border-white/20 flex items-center justify-center bg-transparent shrink-0 checkbox-indicator">
+                                        <i data-lucide="check" class="w-3 h-3 text-gold-400 hidden"></i>
+                                    </div>
+                                </div>
+                                <!-- Option 3 -->
+                                <div onclick="toggleCardSelection(this, 'Tour Packages')" class="glass-panel p-5 rounded-lg border border-white/5 hover:border-gold-400/30 transition-all duration-300 cursor-pointer flex items-center justify-between group select-card">
+                                    <div class="flex items-center gap-3">
+                                        <i data-lucide="map" class="text-gold-400 w-5 h-5 shrink-0 group-hover:scale-110 transition-transform"></i>
+                                        <div>
+                                            <h4 class="font-serif text-sm font-semibold text-white">Tour Packages</h4>
+                                            <p class="text-gray-500 text-[10px] font-sans">Curated itineraries</p>
+                                        </div>
+                                    </div>
+                                    <div class="w-5 h-5 rounded-full border border-white/20 flex items-center justify-center bg-transparent shrink-0 checkbox-indicator">
+                                        <i data-lucide="check" class="w-3 h-3 text-gold-400 hidden"></i>
+                                    </div>
+                                </div>
+                                <!-- Option 4 -->
+                                <div onclick="toggleCardSelection(this, 'Hotel Bookings')" class="glass-panel p-5 rounded-lg border border-white/5 hover:border-gold-400/30 transition-all duration-300 cursor-pointer flex items-center justify-between group select-card">
+                                    <div class="flex items-center gap-3">
+                                        <i data-lucide="hotel" class="text-gold-400 w-5 h-5 shrink-0 group-hover:scale-110 transition-transform"></i>
+                                        <div>
+                                            <h4 class="font-serif text-sm font-semibold text-white">Hotel Bookings</h4>
+                                            <p class="text-gray-500 text-[10px] font-sans">5-star properties & perks</p>
+                                        </div>
+                                    </div>
+                                    <div class="w-5 h-5 rounded-full border border-white/20 flex items-center justify-center bg-transparent shrink-0 checkbox-indicator">
+                                        <i data-lucide="check" class="w-3 h-3 text-gold-400 hidden"></i>
+                                    </div>
+                                </div>
+                                <!-- Option 5 -->
+                                <div onclick="toggleCardSelection(this, 'Cruise & Yachts')" class="glass-panel p-5 rounded-lg border border-white/5 hover:border-gold-400/30 transition-all duration-300 cursor-pointer flex items-center justify-between group select-card">
+                                    <div class="flex items-center gap-3">
+                                        <i data-lucide="anchor" class="text-gold-400 w-5 h-5 shrink-0 group-hover:scale-110 transition-transform"></i>
+                                        <div>
+                                            <h4 class="font-serif text-sm font-semibold text-white">Cruises & Yacht Charters</h4>
+                                            <p class="text-gray-500 text-[10px] font-sans">Silversea, private yachts</p>
+                                        </div>
+                                    </div>
+                                    <div class="w-5 h-5 rounded-full border border-white/20 flex items-center justify-center bg-transparent shrink-0 checkbox-indicator">
+                                        <i data-lucide="check" class="w-3 h-3 text-gold-400 hidden"></i>
+                                    </div>
+                                </div>
+                                <!-- Option 6 -->
+                                <div onclick="toggleCardSelection(this, 'Cabs & Transfers')" class="glass-panel p-5 rounded-lg border border-white/5 hover:border-gold-400/30 transition-all duration-300 cursor-pointer flex items-center justify-between group select-card">
+                                    <div class="flex items-center gap-3">
+                                        <i data-lucide="car" class="text-gold-400 w-5 h-5 shrink-0 group-hover:scale-110 transition-transform"></i>
+                                        <div>
+                                            <h4 class="font-serif text-sm font-semibold text-white">Chauffeur Cabs & Transfers</h4>
+                                            <p class="text-gray-500 text-[10px] font-sans">Out-of-station & airports</p>
+                                        </div>
+                                    </div>
+                                    <div class="w-5 h-5 rounded-full border border-white/20 flex items-center justify-center bg-transparent shrink-0 checkbox-indicator">
+                                        <i data-lucide="check" class="w-3 h-3 text-gold-400 hidden"></i>
+                                    </div>
+                                </div>
+                                <!-- Option 7 -->
+                                <div onclick="toggleCardSelection(this, 'Air Tickets')" class="glass-panel p-5 rounded-lg border border-white/5 hover:border-gold-400/30 transition-all duration-300 cursor-pointer flex items-center justify-between group select-card sm:col-span-2">
+                                    <div class="flex items-center gap-3">
+                                        <i data-lucide="plane" class="text-gold-400 w-5 h-5 shrink-0 group-hover:scale-110 transition-transform"></i>
+                                        <div>
+                                            <h4 class="font-serif text-sm font-semibold text-white">First & Business Class Flights</h4>
+                                            <p class="text-gray-500 text-[10px] font-sans">Cabin configuration & route planning</p>
+                                        </div>
+                                    </div>
+                                    <div class="w-5 h-5 rounded-full border border-white/20 flex items-center justify-center bg-transparent shrink-0 checkbox-indicator">
+                                        <i data-lucide="check" class="w-3 h-3 text-gold-400 hidden"></i>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Hidden storage for selections -->
+                            <input type="hidden" id="selected-services" name="services" required>
+                            <p class="text-[11px] text-red-400 hidden" id="err-step-1">Please select at least one service category to continue.</p>
+                        </div>
+
+                        <!-- STEP 2: Journey Details -->
+                        <div class="step-section space-y-6 hidden" id="step-section-2">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                <div class="space-y-2">
+                                    <label class="text-xs uppercase tracking-widest text-gray-400 font-medium">Destination Interest</label>
+                                    <input type="text" id="destination" name="destination" class="w-full input-elegant px-4 py-3 text-ivory rounded-sm placeholder-gray-700" placeholder="e.g., Amalfi Coast, Switzerland, UK">
+                                </div>
+                                <div class="space-y-2">
+                                    <label class="text-xs uppercase tracking-widest text-gray-400 font-medium">Estimated Travel Dates</label>
+                                    <input type="text" id="travel-dates" name="dates" class="w-full input-elegant px-4 py-3 text-ivory rounded-sm placeholder-gray-700" placeholder="e.g., Oct 2026 or Dec 12 - Dec 24">
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                <div class="space-y-2">
+                                    <label class="text-xs uppercase tracking-widest text-gray-400 font-medium">Number of Guests</label>
+                                    <select id="guest-count" name="guests" class="w-full input-elegant px-4 py-3 text-gray-300 rounded-sm bg-navy-900 border-white/10">
+                                        <option value="1">1 Traveler</option>
+                                        <option value="2" selected>2 Travelers</option>
+                                        <option value="3-5">3 - 5 Travelers (Family)</option>
+                                        <option value="6+">6+ Travelers (Corporate Group)</option>
+                                    </select>
+                                </div>
+                                <div class="space-y-2">
+                                    <label class="text-xs uppercase tracking-widest text-gray-400 font-medium">Luxury Tier Preference</label>
+                                    <select id="luxury-tier" name="tier" class="w-full input-elegant px-4 py-3 text-gray-300 rounded-sm bg-navy-900 border-white/10">
+                                        <option value="Premium">Elite Premium (5-Star Properties)</option>
+                                        <option value="Ultra-Luxury">Ultra-Luxury (Private Villas & Charter Yachts)</option>
+                                        <option value="Corporate">Corporate High-Class Logistics</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- STEP 3: Contact Details -->
+                        <div class="step-section space-y-6 hidden" id="step-section-3">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                <div class="space-y-2">
+                                    <label class="text-xs uppercase tracking-widest text-gray-400 font-medium">Full Name</label>
+                                    <input type="text" id="fullname" name="fullname" class="w-full input-elegant px-4 py-3 text-ivory rounded-sm placeholder-gray-700" placeholder="e.g., John Sterling" required>
+                                    <p class="text-[10px] text-red-400 hidden" id="err-name">Full name is required.</p>
+                                </div>
+                                <div class="space-y-2">
+                                    <label class="text-xs uppercase tracking-widest text-gray-400 font-medium">Email Address</label>
+                                    <input type="email" id="email" name="email" class="w-full input-elegant px-4 py-3 text-ivory rounded-sm placeholder-gray-700" placeholder="e.g., john@sterling.com" required>
+                                    <p class="text-[10px] text-red-400 hidden" id="err-email">A valid email address is required.</p>
+                                </div>
+                            </div>
+
+                            <div class="space-y-2">
+                                <label class="text-xs uppercase tracking-widest text-gray-400 font-medium">Phone Number (with Country Code)</label>
+                                <input type="tel" id="phone" name="phone" class="w-full input-elegant px-4 py-3 text-ivory rounded-sm placeholder-gray-700" placeholder="e.g., +1 (555) 012-3456" required>
+                                <p class="text-[10px] text-red-400 hidden" id="err-phone">Phone number is required.</p>
+                            </div>
+
+                            <div class="space-y-2">
+                                <label class="text-xs uppercase tracking-widest text-gray-400 font-medium">Special Instructions / Consular Refusal History</label>
+                                <textarea id="message" name="message" rows="3" class="w-full input-elegant px-4 py-3 text-ivory rounded-sm placeholder-gray-700" placeholder="Let us know about visa history, cabin class preferences, or unique routing requests..."></textarea>
+                            </div>
+                        </div>
+
+                        <!-- Wizard Actions -->
+                        <div class="flex items-center justify-between border-t border-white/5 pt-8 mt-8">
+                            <button type="button" id="prev-btn" onclick="prevStep()" class="px-6 py-3 border border-white/10 text-gray-400 hover:text-white hover:border-white transition-colors rounded-sm text-xs font-semibold uppercase tracking-widest invisible">
+                                Previous
+                            </button>
+                            <button type="button" id="next-btn" onclick="nextStep()" class="btn-gold px-8 py-3.5 rounded-sm text-xs uppercase tracking-widest font-bold">
+                                Next
+                            </button>
+                        </div>
+
+                    </form>
+
+                    <!-- Loader Submission Overlay (Mock state transitions) -->
+                    <div id="submitting-state" class="absolute inset-0 bg-navy-950/95 z-30 flex flex-col items-center justify-center p-8 hidden text-center">
+                        <div class="w-16 h-16 border-2 border-gold-400/20 border-t-gold-400 rounded-full animate-spin mb-6"></div>
+                        <h4 class="font-serif text-2xl text-white mb-2" id="submit-loader-text">Auditing intake fields...</h4>
+                        <p class="text-gray-500 text-xs font-light max-w-xs">Connecting with our central concierge team in Manhattan</p>
+                    </div>
+
+                    <!-- Success State Overlay -->
+                    <div id="success-state" class="absolute inset-0 bg-navy-950 z-30 flex flex-col items-center justify-center p-8 hidden text-center">
+                        <div class="w-16 h-16 rounded-full border border-emerald-500 flex items-center justify-center text-emerald-500 mb-6 bg-emerald-500/5">
+                            <i data-lucide="check" class="w-8 h-8"></i>
+                        </div>
+                        <h4 class="font-serif text-3xl text-white mb-3">Intake Completed</h4>
+                        <p class="text-gray-400 text-sm font-light max-w-sm leading-relaxed mb-8">
+                            Thank you! Your travel requirements have been successfully audited. A luxury concierge architect has been assigned to your case and will contact you via phone or email within the next 2 hours.
+                        </p>
+                        <a href="index.html" class="btn-outline px-8 py-3 text-xs uppercase tracking-widest font-semibold rounded-sm">
+                            Return Home
+                        </a>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-navy-955 border-t border-white/5 py-16">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+                <!-- Col 1: Brand -->
+                <div class="md:col-span-2">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-10 h-8">
+                            <svg class="w-full h-full" viewBox="0 0 60 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M30 20 C22 10, 10 10, 10 20 C10 30, 22 30, 30 20 C38 10, 50 10, 50 20 C50 30, 38 30, 30 20 Z" 
+                                      stroke="#D4AF37" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+                                <rect x="8" y="7" width="5" height="7" rx="0.5" transform="rotate(-15 8 7)" fill="#1E3A8A" stroke="#FDFBF7" stroke-width="0.5"/>
+                                <path d="M47 6 L51 9 L49 10 L47 8 L45 8 L46 11 L44 11 L43 8 L42 8 L41 6 Z" fill="#F59E0B" />
+                                <circle cx="30" cy="27" r="6" fill="#070b14" stroke="#3B82F6" stroke-width="0.75" />
+                            </svg>
+                        </div>
+                        <div class="flex flex-col">
+                            <span class="text-base font-bold tracking-widest text-ivory uppercase font-serif">
+                                PLEASURE GLOBAL
+                            </span>
+                            <span class="text-[7px] uppercase tracking-[0.38em] text-gray-500 font-sans">
+                                TRAVEL & VISA LLP
+                            </span>
+                        </div>
+                    </div>
+                    <p class="text-gray-500 text-sm max-w-sm font-light leading-relaxed mb-6">
+                        Architecting bespoke journeys, premium flights, and elite visa clearances for travelers seeking a flawless luxury experience.
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="#" class="w-8 h-8 rounded-full border border-white/10 hover:border-gold-400 hover:text-gold-400 transition-colors flex items-center justify-center text-gray-400"><i data-lucide="instagram" class="w-4 h-4"></i></a>
+                        <a href="#" class="w-8 h-8 rounded-full border border-white/10 hover:border-gold-400 hover:text-gold-400 transition-colors flex items-center justify-center text-gray-400"><i data-lucide="facebook" class="w-4 h-4"></i></a>
+                        <a href="#" class="w-8 h-8 rounded-full border border-white/10 hover:border-gold-400 hover:text-gold-400 transition-colors flex items-center justify-center text-gray-400"><i data-lucide="twitter" class="w-4 h-4"></i></a>
+                    </div>
+                </div>
+
+                <!-- Col 2: Navigation Links -->
+                <div>
+                    <h4 class="font-serif text-white text-base mb-6 tracking-wide">Explore</h4>
+                    <ul class="space-y-3 text-sm text-gray-400 font-light">
+                        <li><a href="index.html" class="hover:text-gold-400 transition-colors">Home</a></li>
+                        <li><a href="about.html" class="hover:text-gold-400 transition-colors">About Us</a></li>
+                        <li><a href="visa-services.html" class="hover:text-gold-400 transition-colors">Visa Services</a></li>
+                        <li><a href="travel-services.html" class="hover:text-gold-400 transition-colors">Travel Services</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3: Contact details -->
+                <div>
+                    <h4 class="font-serif text-white text-base mb-6 tracking-wide">Concierge Office</h4>
+                    <ul class="space-y-4 text-sm text-gray-400 font-light">
+                        <li class="flex items-center gap-3">
+                            <i data-lucide="mail" class="text-gold-400 w-4 h-4 shrink-0"></i>
+                            <span class="text-xs">concierge@pleasureglobals.com</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i data-lucide="phone" class="text-gold-400 w-4 h-4 shrink-0"></i>
+                            <span class="text-xs">+1 (555) 012-3456</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="map-pin" class="text-gold-400 w-4 h-4 shrink-0 mt-0.5"></i>
+                            <span class="text-xs leading-normal">Global Headquarters,<br>Manhattan, NY 10001</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-gray-600 text-xs font-sans tracking-widest">
+                <div>
+                    &copy; 2026 Pleasure Global Travel & Visa LLP. All rights reserved.
+                </div>
+                <div class="flex gap-6">
+                    <a href="#" class="hover:text-gray-400 transition-colors">Terms</a>
+                    <a href="#" class="hover:text-gray-400 transition-colors">Privacy Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Main JavaScript Logic -->
+    <script src="app.js"></script>
+
+    <!-- Custom Intake Wizard Script -->
+    <script>
+        let currentStep = 1;
+        const selectedServices = new Set();
+
+        const stepTitles = {
+            1: "Select Your Request",
+            2: "Journey Specifications",
+            3: "Direct Contacts"
+        };
+
+        function toggleCardSelection(card, serviceName) {
+            const checkbox = card.querySelector('.checkbox-indicator');
+            const icon = checkbox.querySelector('i');
+
+            if (selectedServices.has(serviceName)) {
+                selectedServices.delete(serviceName);
+                card.classList.remove('border-gold-400');
+                card.classList.add('border-white/5');
+                checkbox.classList.remove('bg-gold-400/10', 'border-gold-400');
+                checkbox.classList.add('border-white/20');
+                icon.classList.add('hidden');
+            } else {
+                selectedServices.add(serviceName);
+                card.classList.remove('border-white/5');
+                card.classList.add('border-gold-400');
+                checkbox.classList.remove('border-white/20');
+                checkbox.classList.add('bg-gold-400/10', 'border-gold-400');
+                icon.classList.remove('hidden');
+            }
+
+            document.getElementById('selected-services').value = Array.from(selectedServices).join(', ');
+            document.getElementById('err-step-1').classList.add('hidden');
+        }
+
+        function updateWizardUI() {
+            // Update title
+            document.getElementById('current-step-num').innerText = currentStep;
+            document.getElementById('step-title').innerText = stepTitles[currentStep];
+
+            // Hide all sections
+            document.querySelectorAll('.step-section').forEach(sec => sec.classList.add('hidden'));
+            // Show current section
+            document.getElementById(`step-section-${currentStep}`).classList.remove('hidden');
+
+            // Update dot highlights
+            document.querySelectorAll('.step-dot').forEach((dot, idx) => {
+                dot.classList.remove('active');
+                if (idx + 1 === currentStep) {
+                    dot.classList.add('active');
+                }
+            });
+
+            // Update prev/next button text/visibility
+            const prevBtn = document.getElementById('prev-btn');
+            const nextBtn = document.getElementById('next-btn');
+
+            if (currentStep === 1) {
+                prevBtn.classList.add('invisible');
+            } else {
+                prevBtn.classList.remove('invisible');
+            }
+
+            if (currentStep === 3) {
+                nextBtn.innerText = "Submit Request";
+                nextBtn.classList.remove('btn-gold');
+                nextBtn.classList.add('bg-emerald-500', 'hover:bg-emerald-400', 'text-navy-950', 'shadow-emerald-500/20');
+            } else {
+                nextBtn.innerText = "Next";
+                nextBtn.classList.add('btn-gold');
+                nextBtn.classList.remove('bg-emerald-500', 'hover:bg-emerald-400', 'text-navy-950', 'shadow-emerald-500/20');
+            }
+        }
+
+        function nextStep() {
+            if (currentStep === 1) {
+                // Validation for step 1
+                if (selectedServices.size === 0) {
+                    document.getElementById('err-step-1').classList.remove('hidden');
+                    return;
+                }
+                currentStep = 2;
+                updateWizardUI();
+            } else if (currentStep === 2) {
+                // Step 2 doesn't have strict required fields, but standard
+                currentStep = 3;
+                updateWizardUI();
+            } else if (currentStep === 3) {
+                // Form submit triggers handleFormSubmit
+                document.getElementById('intake-form').requestSubmit();
+            }
+        }
+
+        function prevStep() {
+            if (currentStep > 1) {
+                currentStep--;
+                updateWizardUI();
+            }
+        }
+
+        function handleFormSubmit(e) {
+            e.preventDefault();
+
+            // Validate Step 3 fields
+            const name = document.getElementById('fullname').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            let hasError = false;
+
+            document.getElementById('err-name').classList.add('hidden');
+            document.getElementById('err-email').classList.add('hidden');
+            document.getElementById('err-phone').classList.add('hidden');
+
+            if (!name) {
+                document.getElementById('err-name').classList.remove('hidden');
+                hasError = true;
+            }
+            if (!email || !email.includes('@')) {
+                document.getElementById('err-email').classList.remove('hidden');
+                hasError = true;
+            }
+            if (!phone) {
+                document.getElementById('err-phone').classList.remove('hidden');
+                hasError = true;
+            }
+
+            if (hasError) return;
+
+            // Trigger Mock Submission State transitions
+            const loaderOverlay = document.getElementById('submitting-state');
+            const loaderText = document.getElementById('submit-loader-text');
+            const successOverlay = document.getElementById('success-state');
+
+            loaderOverlay.classList.remove('hidden');
+
+            setTimeout(() => {
+                loaderText.innerText = "Encrypting documents...";
+            }, 1000);
+
+            setTimeout(() => {
+                loaderText.innerText = "Assigning concierge planner...";
+            }, 2000);
+
+            setTimeout(() => {
+                loaderOverlay.classList.add('hidden');
+                successOverlay.classList.remove('hidden');
+            }, 3000);
+        }
+    </script>
+</body>
+</html>
