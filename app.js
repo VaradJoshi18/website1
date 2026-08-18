@@ -10,8 +10,13 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // 2. Lenis Smooth Scroll
+    // Driven by the GSAP ticker rather than its own rAF loop, so smooth
+    // scrolling and ScrollTrigger stay on the same clock. Without this,
+    // pinned sections drift and jitter.
     let lenis;
-    if (typeof Lenis !== 'undefined') {
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (typeof Lenis !== 'undefined' && !prefersReducedMotion) {
         lenis = new Lenis({
             duration: 1.2,
             easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
@@ -22,11 +27,21 @@ document.addEventListener('DOMContentLoaded', () => {
             touchMultiplier: 1.5,
         });
 
-        function raf(time) {
-            lenis.raf(time);
+        window.lenisInstance = lenis;
+
+        if (typeof gsap !== 'undefined') {
+            if (typeof ScrollTrigger !== 'undefined') {
+                lenis.on('scroll', ScrollTrigger.update);
+            }
+            gsap.ticker.add((time) => lenis.raf(time * 1000));
+            gsap.ticker.lagSmoothing(0);
+        } else {
+            const raf = (time) => {
+                lenis.raf(time);
+                requestAnimationFrame(raf);
+            };
             requestAnimationFrame(raf);
         }
-        requestAnimationFrame(raf);
     }
 
     // 3. Loader Controller
@@ -54,6 +69,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 4. GSAP & ScrollTrigger Animations
     function initAnimations() {
+        // Entrance animations use gsap.from(), so elements are already visible
+        // in their final state. Skipping is safe and leaves nothing hidden.
+        if (prefersReducedMotion) return;
+
         if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
             gsap.registerPlugin(ScrollTrigger);
 
@@ -73,7 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
             ScrollTrigger.create({
                 start: "top -60",
                 end: 99999,
-                toggleClass: { className: "bg-navy-950/90 backdrop-blur-md shadow-2xl py-4 border-b border-white/5", targets: "#navbar" }
+                toggleClass: { className: "nav-scrolled", targets: "#navbar" }
             });
 
             // Count Up Counters
@@ -93,13 +112,17 @@ document.addEventListener('DOMContentLoaded', () => {
             });
 
             // Card Reveal Staggers
+            // The delay is indexed modulo 4 rather than by absolute position.
+            // Using the raw index made the delay accumulate across the whole
+            // page, so cards near the footer sat invisible for almost a second
+            // after scrolling into view.
             if (document.querySelector('.reveal-card')) {
                 gsap.utils.toArray('.reveal-card').forEach((card, i) => {
                     gsap.from(card, {
                         y: 45,
                         opacity: 0,
-                        duration: 1,
-                        delay: i * 0.05,
+                        duration: 0.85,
+                        delay: (i % 4) * 0.06,
                         scrollTrigger: {
                             trigger: card,
                             start: "top 88%",
@@ -127,17 +150,42 @@ document.addEventListener('DOMContentLoaded', () => {
             // Service Track scroll animations
             const serviceCards = document.querySelectorAll('.service-card');
             if (serviceCards.length > 0) {
-                gsap.from(".service-card", {
-                    x: 60,
-                    opacity: 0,
-                    duration: 0.8,
-                    stagger: 0.1,
-                    ease: "power2.out",
-                    scrollTrigger: {
-                        trigger: "#services",
-                        start: "top 80%"
+                gsap.fromTo(".service-card",
+                    { x: 60, opacity: 0 },
+                    {
+                        x: 0,
+                        opacity: 1,
+                        duration: 0.8,
+                        stagger: 0.1,
+                        ease: "power2.out",
+                        scrollTrigger: {
+                            trigger: "#services",
+                            start: "top 85%",
+                            once: true,
+                            onEnter: () => {
+                                // Ensure cards become visible even if stagger is long
+                                setTimeout(() => {
+                                    serviceCards.forEach(card => {
+                                        card.style.opacity = '';
+                                        card.style.transform = '';
+                                    });
+                                }, 1500);
+                            }
+                        }
                     }
-                });
+                );
+
+                // Safety fallback: if GSAP ScrollTrigger never fires (e.g. section already in view),
+                // force cards visible after a short delay
+                setTimeout(() => {
+                    serviceCards.forEach(card => {
+                        const style = window.getComputedStyle(card);
+                        if (parseFloat(style.opacity) < 0.1) {
+                            card.style.opacity = '1';
+                            card.style.transform = 'none';
+                        }
+                    });
+                }, 2500);
             }
 
             // Form container entry animations
