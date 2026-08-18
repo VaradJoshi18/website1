@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Services | Pleasure Global Travel & Visa LLP</title>
+    <meta name="description"
+        content="Discover Pleasure Global's luxury travel services: bespoke Tour Packages, elite Hotel Bookings, Yacht & Cruise charters, Chauffeured Cabs, and Premium Air Tickets.">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap"
+        rel="stylesheet">
+
+    <!-- GSAP & ScrollTrigger -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <!-- Lenis Smooth Scroll -->
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Custom Luxury Theme CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: {
+                            950: '#070b14',
+                            900: '#0B1120',
+                            800: '#151E32',
+                            700: '#1E293B',
+                        },
+                        gold: {
+                            300: '#EED790',
+                            400: '#D4AF37',
+                            500: '#C59B2D',
+                            600: '#B8922E',
+                        },
+                        ivory: '#FDFBF7',
+                    },
+                    fontFamily: {
+                        serif: ['"Playfair Display"', 'serif'],
+                        sans: ['"Inter"', 'sans-serif'],
+                        mono: ['"JetBrains Mono"', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Design layer shared with index.html */
+        #scroll-rail {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            height: 1px;
+            width: 100%;
+            transform: scaleX(0);
+            transform-origin: 0 50%;
+            background: linear-gradient(to right, #B8922E, #EED790);
+        }
+
+        .tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10px;
+            letter-spacing: 0.32em;
+            text-transform: uppercase;
+            color: #D4AF37;
+        }
+
+        .tag::after {
+            content: '';
+            width: 3.5rem;
+            height: 1px;
+            background: linear-gradient(to right, rgba(212, 175, 55, 0.6), transparent);
+        }
+
+        .pkg {
+            transition: border-color 0.4s ease, background-color 0.4s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .pkg:hover {
+            transform: translateY(-4px);
+            border-color: rgba(212, 175, 55, 0.35);
+            background-color: rgba(21, 30, 50, 0.6);
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.001ms !important;
+                transition-duration: 0.001ms !important;
+            }
+        }
+    </style>
+</head>
+
+<body class="antialiased selection:bg-gold-500 selection:text-white">
+
+    <!-- Noise Overlay -->
+    <div class="noise-bg"></div>
+
+    <!-- Loader -->
+    <div class="loader" id="loader">
+        <div class="text-center flex flex-col items-center">
+            <div class="mb-6 scale-125">
+                <img src="logo-mark.png" alt="Pleasure Global Travel &amp; Visa LLP"
+                        class="h-12 w-auto" width="386" height="132">
+            </div>
+            <h1 class="font-serif text-2xl md:text-4xl text-ivory tracking-[0.2em] uppercase">PLEASURE GLOBAL</h1>
+            <p class="text-gold-400 text-xs uppercase tracking-[0.4em] mt-3 font-sans">TRAVEL & VISA LLP</p>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed w-full z-40 transition-all duration-500 py-6 border-b border-transparent">
+        <div id="scroll-rail"></div>
+        <div class="container mx-auto px-6 flex justify-between items-center">
+
+            <a href="index.html" class="flex items-center gap-3 group logo-container">
+                <div class="relative h-10 shrink-0">
+                    <img src="logo-mark.png" alt="Pleasure Global Travel &amp; Visa LLP"
+                        class="h-full w-auto" width="386" height="132">
+                </div>
+                <div class="flex flex-col">
+                    <span
+                        class="text-lg md:text-xl font-bold tracking-widest text-ivory logo-text-serif uppercase group-hover:text-gold-400 transition-colors duration-300">
+                        PLEASURE GLOBAL
+                    </span>
+                    <span class="text-[8px] md:text-[9px] uppercase tracking-[0.38em] text-gray-400 font-mono">
+                        TRAVEL &amp; VISA LLP
+                    </span>
+                </div>
+            </a>
+
+            <div class="hidden lg:flex items-center gap-8">
+                <a href="index.html" class="text-[11px] font-mono uppercase tracking-widest text-gray-300 hover:text-gold-400 transition-colors">Home</a>
+                <a href="about.html" class="text-[11px] font-mono uppercase tracking-widest text-gray-300 hover:text-gold-400 transition-colors">About</a>
+                <a href="visa-services.html" class="text-[11px] font-mono uppercase tracking-widest text-gray-300 hover:text-gold-400 transition-colors">Visa</a>
+                <a href="travel-services.html" class="text-[11px] font-mono uppercase tracking-widest text-gold-400">Travel</a>
+                <a href="contact.html"
+                    class="magnetic px-6 py-2 border border-gold-400 text-gold-400 hover:bg-gold-400 hover:text-navy-900 transition-all duration-300 text-[11px] font-mono uppercase tracking-widest rounded-sm">
+                    Plan Trip
+                </a>
+            </div>
+
+            <button id="mobile-menu-btn" class="lg:hidden text-ivory" aria-label="Open menu">
+                <i data-lucide="menu" class="w-8 h-8"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu"
+        class="fixed inset-0 bg-navy-950/95 z-50 transform translate-x-full transition-transform duration-500 flex flex-col justify-center items-center gap-8 backdrop-blur-md">
+        <button id="close-menu" class="absolute top-6 right-6 text-ivory" aria-label="Close menu">
+            <i data-lucide="x" class="w-8 h-8"></i>
+        </button>
+        <a href="index.html" class="mobile-link text-2xl font-serif text-ivory hover:text-gold-400">Home</a>
+        <a href="about.html" class="mobile-link text-2xl font-serif text-ivory hover:text-gold-400">About Us</a>
+        <a href="visa-services.html" class="mobile-link text-2xl font-serif text-ivory hover:text-gold-400">Visa Services</a>
+        <a href="travel-services.html" class="mobile-link text-2xl font-serif text-gold-400">Travel Services</a>
+        <a href="contact.html"
+            class="mobile-link px-8 py-3 border border-gold-400 text-gold-400 mt-4 text-sm font-mono tracking-widest uppercase">Plan
+            Your Trip</a>
+    </div>
+    <!-- Inner Page Header -->
+    <header class="relative h-[60vh] w-full overflow-hidden flex items-center justify-center border-b border-white/5">
+        <!-- Background Image -->
+        <div class="absolute inset-0 w-full h-full z-0">
+            <img src="https://images.unsplash.com/photo-1544644181-1484b3fdfc62?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80"
+                alt="Airplane Wing" class="w-full h-full object-cover fixed-bg opacity-25 scale-110">
+            <!-- Gradient Overlay -->
+            <div class="absolute inset-0 bg-gradient-to-b from-navy-900/30 via-navy-900/70 to-navy-900"></div>
+        </div>
+
+        <!-- Header Content -->
+        <div class="relative z-10 text-center px-6 max-w-4xl mx-auto mt-20">
+            <p class="reveal-text font-mono text-gold-400 text-[10px] md:text-xs uppercase tracking-[0.22em] md:tracking-[0.4em] mb-6">
+                Bespoke Concierge &amp; Logistics</p>
+            <h1 class="reveal-text font-serif text-4xl sm:text-5xl md:text-6xl text-ivory leading-[1.1] mb-4">
+                Bespoke Services <br><span class="italic font-light">for the Discerning Traveler</span>
+            </h1>
+            <div class="reveal-text w-16 h-px bg-gold-400 mx-auto mt-8"></div>
+        </div>
+    </header>
+
+    <!-- Navigation Hub (Jump Links) -->
+    <section class="py-6 bg-navy-950 border-b border-white/5">
+        <div
+            class="container mx-auto px-6 max-w-4xl flex flex-wrap justify-center gap-x-6 gap-y-3 md:gap-8 font-mono text-[10px] uppercase tracking-[0.2em]">
+            <a href="#tours" class="text-gray-400 hover:text-gold-400 transition-colors">Tour Packages</a>
+            <span class="text-white/10 hidden md:inline">|</span>
+            <a href="#hotels" class="text-gray-400 hover:text-gold-400 transition-colors">Hotel Bookings</a>
+            <span class="text-white/10 hidden md:inline">|</span>
+            <a href="#cruise" class="text-gray-400 hover:text-gold-400 transition-colors">Cruises & Yachts</a>
+            <span class="text-white/10 hidden md:inline">|</span>
+            <a href="#cabs" class="text-gray-400 hover:text-gold-400 transition-colors">Transfers & Cabs</a>
+            <span class="text-white/10 hidden md:inline">|</span>
+            <a href="#flights" class="text-gray-400 hover:text-gold-400 transition-colors">Premium Flights</a>
+        </div>
+    </section>
+
+    <!-- Services Detailed Sections -->
+    <section class="py-24 bg-navy-900 space-y-32">
+        <div class="container mx-auto px-6 max-w-5xl">
+
+            <!-- Section 1: Tour Packages -->
+            <div id="tours" class="scroll-mt-24">
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center mb-14">
+                    <div class="lg:col-span-7 reveal-card">
+                        <span class="tag">01 / Signature Itineraries</span>
+                        <h3 class="font-serif text-3xl md:text-5xl text-ivory mt-6 mb-5 leading-[1.1]">Luxury Tour
+                            Packages</h3>
+                        <p class="text-gray-300 text-sm md:text-base font-light leading-relaxed mb-4">
+                            We design tailor-made, slow-travel itineraries built from deep regional research. Nothing is
+                            pulled off a shelf — every route is balanced between guided culture and private, unhurried
+                            leisure, then priced transparently before you commit.
+                        </p>
+                        <p class="text-gray-500 text-sm font-light leading-relaxed">
+                            Whichever shape your trip takes, one consultant stays with you from the first enquiry to the
+                            day you land back home — and if the destination needs a visa, our own team files it.
+                        </p>
+                    </div>
+                    <div
+                        class="lg:col-span-5 relative h-[300px] lg:h-[380px] rounded-xl overflow-hidden reveal-card border border-white/10 img-zoom-container">
+                        <img src="https://images.unsplash.com/photo-1516483638261-f4dbaf036963?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                            alt="Coastal destination" class="w-full h-full object-cover" loading="lazy">
+                    </div>
+                </div>
+
+                <!-- Package types -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+
+                    <div class="pkg glass-panel p-6 rounded-xl border border-white/5 reveal-card flex flex-col">
+                        <div class="flex items-start justify-between mb-4">
+                            <i data-lucide="globe" class="text-gold-400 w-5 h-5"></i>
+                            <span class="font-mono text-[10px] tracking-[0.25em] text-gold-400/60">01</span>
+                        </div>
+                        <h4 class="font-serif text-lg text-white mb-2">International Escapes</h4>
+                        <p class="text-gray-500 text-xs font-light leading-relaxed mb-5">Southeast Asia, Dubai, Europe
+                            and beyond — routed around the seasons and the visa timelines, not just the flight price.</p>
+                        <p class="font-mono text-[9px] uppercase tracking-[0.2em] text-gray-600 mt-auto pt-1">Bali &middot; Singapore
+                            &middot; Dubai &middot; Vietnam</p>
+                    </div>
+
+                    <div class="pkg glass-panel p-6 rounded-xl border border-white/5 reveal-card flex flex-col">
+                        <div class="flex items-start justify-between mb-4">
+                            <i data-lucide="mountain-snow" class="text-gold-400 w-5 h-5"></i>
+                            <span class="font-mono text-[10px] tracking-[0.25em] text-gold-400/60">02</span>
+                        </div>
+                        <h4 class="font-serif text-lg text-white mb-2">Domestic Journeys</h4>
+                        <p class="text-gray-500 text-xs font-light leading-relaxed mb-5">India at a premium standard —
+                            heritage properties, private guides and drivers who know the region rather than just the road.</p>
+                        <p class="font-mono text-[9px] uppercase tracking-[0.2em] text-gray-600 mt-auto pt-1">Kashmir &middot; Kerala
+                            &middot; Rajasthan &middot; Northeast</p>
+                    </div>
+
+                    <div class="pkg glass-panel p-6 rounded-xl border border-white/5 reveal-card flex flex-col">
+                        <div class="flex items-start justify-between mb-4">
+                            <i data-lucide="heart" class="text-gold-400 w-5 h-5"></i>
+                            <span class="font-mono text-[10px] tracking-[0.25em] text-gold-400/60">03</span>
+                        </div>
+                        <h4 class="font-serif text-lg text-white mb-2">Honeymoon &amp; Anniversary</h4>
+                        <p class="text-gray-500 text-xs font-light leading-relaxed mb-5">Private pool villas, a quiet
+                            dinner arranged without you asking, and a pace that leaves room to do nothing at all.</p>
+                        <p class="font-mono text-[9px] uppercase tracking-[0.2em] text-gray-600 mt-auto pt-1">Maldives &middot;
+                            Bali &middot; Switzerland</p>
+                    </div>
+
+                    <div class="pkg glass-panel p-6 rounded-xl border border-white/5 reveal-card flex flex-col">
+                        <div class="flex items-start justify-between mb-4">
+                            <i data-lucide="users" class="text-gold-400 w-5 h-5"></i>
+                            <span class="font-mono text-[10px] tracking-[0.25em] text-gold-400/60">04</span>
+                        </div>
+                        <h4 class="font-serif text-lg text-white mb-2">Family &amp; Multi-Generational</h4>
+                        <p class="text-gray-500 text-xs font-light leading-relaxed mb-5">Connecting rooms, shorter
+                            travel days and food everyone will actually eat — planned around both the children and the
+                            grandparents.</p>
+                        <p class="font-mono text-[9px] uppercase tracking-[0.2em] text-gray-600 mt-auto pt-1">Singapore &middot;
+                            Thailand &middot; Europe</p>
+                    </div>
+
+                    <div class="pkg glass-panel p-6 rounded-xl border border-white/5 reveal-card flex flex-col">
+                        <div class="flex items-start justify-between mb-4">
+                            <i data-lucide="calendar-check" class="text-gold-400 w-5 h-5"></i>
+                            <span class="font-mono text-[10px] tracking-[0.25em] text-gold-400/60">05</span>
+                        </div>
+                        <h4 class="font-serif text-lg text-white mb-2">Group &amp; Fixed Departures</h4>
+                        <p class="text-gray-500 text-xs font-light leading-relaxed mb-5">Set dates with a curated small
+                            group, so the cost per traveller drops without the itinerary turning into a coach tour.</p>
+                        <p class="font-mono text-[9px] uppercase tracking-[0.2em] text-gray-600 mt-auto pt-1">Scheduled &middot;
+                            Small groups</p>
+                    </div>
+
+                    <div class="pkg glass-panel p-6 rounded-xl border border-white/5 reveal-card flex flex-col">
+                        <div class="flex items-start justify-between mb-4">
+                            <i data-lucide="briefcase" class="text-gold-400 w-5 h-5"></i>
+                            <span class="font-mono text-[10px] tracking-[0.25em] text-gold-400/60">06</span>
+                        </div>
+                        <h4 class="font-serif text-lg text-white mb-2">Corporate &amp; Incentive</h4>
+                        <p class="text-gray-500 text-xs font-light leading-relaxed mb-5">Offsites, dealer trips and
+                            conferences — group visas, single invoicing and one coordinator handling every moving part.</p>
+                        <p class="font-mono text-[9px] uppercase tracking-[0.2em] text-gray-600 mt-auto pt-1">MICE &middot; Offsites
+                            &middot; Retreats</p>
+                    </div>
+
+                </div>
+
+                <div
+                    class="mt-8 flex flex-col sm:flex-row sm:items-center justify-between gap-5 border-t border-white/5 pt-8 reveal-card">
+                    <p class="text-gray-500 text-sm font-light leading-relaxed max-w-xl">
+                        Not sure which fits? Describe the trip in your own words and we'll shape the right itinerary
+                        around it.
+                    </p>
+                    <a href="contact.html"
+                        class="btn-gold px-8 py-3 rounded-sm font-mono text-[10px] uppercase tracking-[0.2em] shrink-0 text-center">
+                        Request an itinerary
+                    </a>
+                </div>
+            </div>
+
+            <!-- Divider -->
+            <div class="w-full h-px bg-white/5 my-24"></div>
+
+            <!-- Section 2: Hotel Bookings -->
+            <div id="hotels" class="scroll-mt-24">
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center mb-12">
+                    <div
+                        class="lg:col-span-5 lg:order-last relative h-[300px] lg:h-[380px] rounded-xl overflow-hidden reveal-card border border-white/10 img-zoom-container">
+                        <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                            alt="Resort pool" class="w-full h-full object-cover" loading="lazy">
+                    </div>
+                    <div class="lg:col-span-7 reveal-card">
+                        <span class="tag">02 / Where You Stay</span>
+                        <h3 class="font-serif text-3xl md:text-5xl text-ivory mt-6 mb-5 leading-[1.1]">Elite Hotel
+                            Bookings</h3>
+                        <p class="text-gray-300 text-sm md:text-base font-light leading-relaxed mb-4">
+                            The room category matters more than the star rating. We book across the full range of
+                            property types and tell you plainly which one suits the trip you've described — then confirm
+                            the details that photographs never show.
+                        </p>
+                        <p class="text-gray-500 text-sm font-light leading-relaxed">
+                            Rates are quoted with taxes and cancellation terms included, so the number you see is the
+                            number you pay.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Property register -->
+                <div class="border-t border-white/10">
+                    <div
+                        class="reveal-card group grid grid-cols-12 gap-x-4 gap-y-2 items-baseline py-6 border-b border-white/10 hover:bg-white/[0.025] transition-colors duration-500 px-2 -mx-2">
+                        <span class="col-span-2 md:col-span-1 font-mono text-[10px] tracking-[0.2em] text-gold-400/70">01</span>
+                        <h4 class="col-span-10 md:col-span-3 font-serif text-xl text-ivory group-hover:text-gold-300 transition-colors">City Hotels</h4>
+                        <p class="col-span-12 md:col-span-6 text-gray-500 text-sm font-light leading-relaxed">Business districts and central addresses, chosen so you can walk to the reason you came.</p>
+                        <span class="col-span-12 md:col-span-2 md:text-right font-mono text-[9px] uppercase tracking-[0.18em] text-gray-600">Dubai &middot; Singapore &middot; Bangkok</span>
+                    </div>
+                    <div
+                        class="reveal-card group grid grid-cols-12 gap-x-4 gap-y-2 items-baseline py-6 border-b border-white/10 hover:bg-white/[0.025] transition-colors duration-500 px-2 -mx-2">
+                        <span class="col-span-2 md:col-span-1 font-mono text-[10px] tracking-[0.2em] text-gold-400/70">02</span>
+                        <h4 class="col-span-10 md:col-span-3 font-serif text-xl text-ivory group-hover:text-gold-300 transition-colors">Beach Resorts</h4>
+                        <p class="col-span-12 md:col-span-6 text-gray-500 text-sm font-light leading-relaxed">Sea-facing categories that are actually sea-facing, with the pool and beach access confirmed before booking.</p>
+                        <span class="col-span-12 md:col-span-2 md:text-right font-mono text-[9px] uppercase tracking-[0.18em] text-gray-600">Bali &middot; Phuket &middot; Maldives</span>
+                    </div>
+                    <div
+                        class="reveal-card group grid grid-cols-12 gap-x-4 gap-y-2 items-baseline py-6 border-b border-white/10 hover:bg-white/[0.025] transition-colors duration-500 px-2 -mx-2">
+                        <span class="col-span-2 md:col-span-1 font-mono text-[10px] tracking-[0.2em] text-gold-400/70">03</span>
+                        <h4 class="col-span-10 md:col-span-3 font-serif text-xl text-ivory group-hover:text-gold-300 transition-colors">Private Villas</h4>
+                        <p class="col-span-12 md:col-span-6 text-gray-500 text-sm font-light leading-relaxed">Whole-property stays with staff and a private pool — the sensible choice once a group passes six.</p>
+                        <span class="col-span-12 md:col-span-2 md:text-right font-mono text-[9px] uppercase tracking-[0.18em] text-gray-600">Bali &middot; Koh Samui</span>
+                    </div>
+                    <div
+                        class="reveal-card group grid grid-cols-12 gap-x-4 gap-y-2 items-baseline py-6 border-b border-white/10 hover:bg-white/[0.025] transition-colors duration-500 px-2 -mx-2">
+                        <span class="col-span-2 md:col-span-1 font-mono text-[10px] tracking-[0.2em] text-gold-400/70">04</span>
+                        <h4 class="col-span-10 md:col-span-3 font-serif text-xl text-ivory group-hover:text-gold-300 transition-colors">Heritage &amp; Palace Stays</h4>
+                        <p class="col-span-12 md:col-span-6 text-gray-500 text-sm font-light leading-relaxed">Converted forts, havelis and palace wings, with the rooms worth having identified in advance.</p>
+                        <span class="col-span-12 md:col-span-2 md:text-right font-mono text-[9px] uppercase tracking-[0.18em] text-gray-600">Rajasthan &middot; Kerala</span>
+                    </div>
+                    <div
+                        class="reveal-card group grid grid-cols-12 gap-x-4 gap-y-2 items-baseline py-6 border-b border-white/10 hover:bg-white/[0.025] transition-colors duration-500 px-2 -mx-2">
+                        <span class="col-span-2 md:col-span-1 font-mono text-[10px] tracking-[0.2em] text-gold-400/70">05</span>
+                        <h4 class="col-span-10 md:col-span-3 font-serif text-xl text-ivory group-hover:text-gold-300 transition-colors">Serviced Apartments</h4>
+                        <p class="col-span-12 md:col-span-6 text-gray-500 text-sm font-light leading-relaxed">Kitchens and separate bedrooms for longer stays, families with young children, and corporate deputations.</p>
+                        <span class="col-span-12 md:col-span-2 md:text-right font-mono text-[9px] uppercase tracking-[0.18em] text-gray-600">Extended stays</span>
+                    </div>
+                </div>
+
+                <!-- What we handle -->
+                <div class="grid grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-7 mt-10">
+                    <div class="reveal-card">
+                        <i data-lucide="bed-double" class="text-gold-400 w-4 h-4 mb-3"></i>
+                        <h5 class="font-serif text-sm text-ivory mb-1">Room category advice</h5>
+                        <p class="text-gray-500 text-xs font-light leading-relaxed">Which tier is worth the upgrade and
+                            which is only a bigger number.</p>
+                    </div>
+                    <div class="reveal-card">
+                        <i data-lucide="map-pin" class="text-gold-400 w-4 h-4 mb-3"></i>
+                        <h5 class="font-serif text-sm text-ivory mb-1">Location vetting</h5>
+                        <p class="text-gray-500 text-xs font-light leading-relaxed">Checked against where you'll
+                            actually spend your days, not the map pin.</p>
+                    </div>
+                    <div class="reveal-card">
+                        <i data-lucide="users" class="text-gold-400 w-4 h-4 mb-3"></i>
+                        <h5 class="font-serif text-sm text-ivory mb-1">Group room blocks</h5>
+                        <p class="text-gray-500 text-xs font-light leading-relaxed">Held together for families and
+                            corporate parties, on one invoice.</p>
+                    </div>
+                    <div class="reveal-card">
+                        <i data-lucide="file-check-2" class="text-gold-400 w-4 h-4 mb-3"></i>
+                        <h5 class="font-serif text-sm text-ivory mb-1">Cancellation terms</h5>
+                        <p class="text-gray-500 text-xs font-light leading-relaxed">Explained before you pay, and
+                            flagged again before the deadline.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Divider -->
+            <div class="w-full h-px bg-white/5 my-24"></div>
+
+            <!-- Section 3: Cruise Bookings -->
+            <div id="cruise" class="scroll-mt-24">
+
+                <div class="max-w-2xl mb-12 reveal-card">
+                    <span class="tag">03 / Marine Voyages</span>
+                    <h3 class="font-serif text-3xl md:text-5xl text-ivory mt-6 mb-5 leading-[1.1]">Cruises &amp; Yacht
+                        Charters</h3>
+                    <p class="text-gray-300 text-sm md:text-base font-light leading-relaxed">
+                        Two very different ways to travel by sea. We book both, and we'll tell you honestly which one
+                        fits the group you're travelling with.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-5">
+
+                    <div class="reveal-card relative rounded-xl overflow-hidden border border-white/10 min-h-[420px] group">
+                        <div class="img-zoom-container absolute inset-0">
+                            <img src="https://images.unsplash.com/photo-1548574505-5e239809ee19?ixlib=rb-4.0.3&auto=format&fit=crop&w=900&q=80"
+                                alt="Ocean cruise liner" class="w-full h-full object-cover" loading="lazy">
+                        </div>
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-navy-950 via-navy-950/75 to-navy-950/20"></div>
+                        <div class="relative h-full flex flex-col justify-end p-7 md:p-9">
+                            <span class="font-mono text-[9px] tracking-[0.3em] uppercase text-gold-400 mb-3">Track A
+                                &middot; Shared</span>
+                            <h4 class="font-serif text-2xl md:text-3xl text-white mb-3">Ocean Cruise Liners</h4>
+                            <p class="text-gray-400 text-sm font-light leading-relaxed mb-5">
+                                Best value per night at sea, and the easiest option with children or a mixed-age
+                                family. We pick the deck and cabin position, not just the ship.
+                            </p>
+                            <p class="font-mono text-[9px] uppercase tracking-[0.18em] text-gray-500">Disney &middot;
+                                Royal Caribbean &middot; Norwegian &middot; Princess &middot; Dream</p>
+                        </div>
+                    </div>
+
+                    <div class="reveal-card relative rounded-xl overflow-hidden border border-white/10 min-h-[420px] group">
+                        <div class="img-zoom-container absolute inset-0">
+                            <img src="https://images.unsplash.com/photo-1567899378494-47b22a2ae96a?ixlib=rb-4.0.3&auto=format&fit=crop&w=900&q=80"
+                                alt="Private yacht charter" class="w-full h-full object-cover" loading="lazy">
+                        </div>
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-navy-950 via-navy-950/75 to-navy-950/20"></div>
+                        <div class="relative h-full flex flex-col justify-end p-7 md:p-9">
+                            <span class="font-mono text-[9px] tracking-[0.3em] uppercase text-gold-400 mb-3">Track B
+                                &middot; Private</span>
+                            <h4 class="font-serif text-2xl md:text-3xl text-white mb-3">Private Yacht Charters</h4>
+                            <p class="text-gray-400 text-sm font-light leading-relaxed mb-5">
+                                The whole vessel, your own route and no fixed schedule. Comes with captain, crew and
+                                chef — and makes sense from roughly eight guests upward.
+                            </p>
+                            <p class="font-mono text-[9px] uppercase tracking-[0.18em] text-gray-500">Andaman &middot;
+                                Aegean &middot; Caribbean &middot; Indonesian archipelago</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Divider -->
+            <div class="w-full h-px bg-white/5 my-24"></div>
+
+            <!-- Section 4: Cabs & Airport Transfers -->
+            <div id="cabs" class="scroll-mt-24">
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-end mb-10">
+                    <div class="lg:col-span-8 reveal-card">
+                        <span class="tag">04 / Premium Transit</span>
+                        <h3 class="font-serif text-3xl md:text-5xl text-ivory mt-6 mb-5 leading-[1.1]">Chauffeurs &amp;
+                            Airport Transfers</h3>
+                        <p class="text-gray-300 text-sm md:text-base font-light leading-relaxed max-w-xl">
+                            The part of a trip most likely to go wrong is the ground move. We book it against your
+                            flight number so the car is waiting whether you land early or three hours late.
+                        </p>
+                    </div>
+                    <div class="lg:col-span-4 reveal-card">
+                        <a href="contact.html"
+                            class="btn-outline w-full inline-block text-center px-6 py-3.5 rounded-sm font-mono text-[10px] uppercase tracking-[0.2em] text-ivory">
+                            Arrange a transfer
+                        </a>
+                    </div>
+                </div>
+
+                <div
+                    class="reveal-card rounded-xl border border-white/10 overflow-hidden grid grid-cols-1 md:grid-cols-3 bg-navy-950/40">
+                    <div class="p-7 md:p-8 border-b md:border-b-0 md:border-r border-white/5">
+                        <i data-lucide="car-front" class="text-gold-400 w-5 h-5 mb-4"></i>
+                        <h4 class="font-serif text-lg text-ivory mb-2">Executive fleet</h4>
+                        <p class="text-gray-500 text-sm font-light leading-relaxed mb-4">Sedans, full-size SUVs and
+                            multi-seat sprinters for larger parties and luggage that doesn't fold.</p>
+                        <p class="font-mono text-[9px] uppercase tracking-[0.18em] text-gray-600">Sedan &middot; SUV
+                            &middot; Sprinter</p>
+                    </div>
+                    <div class="p-7 md:p-8 border-b md:border-b-0 md:border-r border-white/5">
+                        <i data-lucide="user-check" class="text-gold-400 w-5 h-5 mb-4"></i>
+                        <h4 class="font-serif text-lg text-ivory mb-2">Vetted drivers</h4>
+                        <p class="text-gray-500 text-sm font-light leading-relaxed mb-4">Professional chauffeurs who
+                            know the route, with English-speaking drivers arranged on request abroad.</p>
+                        <p class="font-mono text-[9px] uppercase tracking-[0.18em] text-gray-600">Background checked</p>
+                    </div>
+                    <div class="p-7 md:p-8">
+                        <i data-lucide="plane-landing" class="text-gold-400 w-5 h-5 mb-4"></i>
+                        <h4 class="font-serif text-lg text-ivory mb-2">Flight-tracked pickup</h4>
+                        <p class="text-gray-500 text-sm font-light leading-relaxed mb-4">Arrival times are monitored,
+                            so a delayed landing moves the car rather than losing it.</p>
+                        <p class="font-mono text-[9px] uppercase tracking-[0.18em] text-gray-600">Airports &middot;
+                            Outstation</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Divider -->
+            <div class="w-full h-px bg-white/5 my-24"></div>
+
+            <!-- Section 5: Air Tickets -->
+            <div id="flights" class="scroll-mt-24">
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center mb-12">
+                    <div class="lg:col-span-7 reveal-card">
+                        <span class="tag">05 / Flight Concierge</span>
+                        <h3 class="font-serif text-3xl md:text-5xl text-ivory mt-6 mb-5 leading-[1.1]">First &amp;
+                            Business Class Ticketing</h3>
+                        <p class="text-gray-300 text-sm md:text-base font-light leading-relaxed">
+                            Flight routing is more than booking a ticket. Our air coordinators optimise connections,
+                            read the cabin layout before you sit in it, and stay reachable when a schedule moves.
+                        </p>
+                    </div>
+                    <div
+                        class="lg:col-span-5 relative h-[300px] lg:h-[380px] rounded-xl overflow-hidden reveal-card border border-white/10 img-zoom-container">
+                        <img src="https://images.unsplash.com/photo-1540962351504-03099e0a754b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                            alt="Business class cabin" class="w-full h-full object-cover" loading="lazy">
+                    </div>
+                </div>
+
+                <!-- Flight desk pass -->
+                <div class="reveal-card rounded-xl border border-white/10 overflow-hidden bg-navy-950/40">
+                    <div
+                        class="flex flex-wrap items-center justify-between gap-3 px-6 py-4 border-b border-dashed border-white/15 bg-navy-950/60">
+                        <span class="font-mono text-[10px] uppercase tracking-[0.3em] text-gold-400">Pleasure Global
+                            &middot; Flight Desk</span>
+                        <span class="font-mono text-[10px] uppercase tracking-[0.3em] text-gray-500">Cabin F / J /
+                            W</span>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2">
+                        <div class="p-6 md:p-8 border-b sm:border-r border-white/5">
+                            <span class="font-mono text-[9px] tracking-[0.25em] text-gold-400/60 block mb-3">SVC
+                                01</span>
+                            <h4 class="font-serif text-lg text-ivory mb-2">Route &amp; connection planning</h4>
+                            <p class="text-gray-500 text-sm font-light leading-relaxed">Layovers long enough to be
+                                calm and short enough to be worth it, built around your visa and transit rules.</p>
+                        </div>
+                        <div class="p-6 md:p-8 border-b border-white/5">
+                            <span class="font-mono text-[9px] tracking-[0.25em] text-gold-400/60 block mb-3">SVC
+                                02</span>
+                            <h4 class="font-serif text-lg text-ivory mb-2">Seat blocking</h4>
+                            <p class="text-gray-500 text-sm font-light leading-relaxed">Seats held together for your
+                                party and assigned at booking, rather than left to airport check-in.</p>
+                        </div>
+                        <div class="p-6 md:p-8 sm:border-r border-white/5 border-b sm:border-b-0">
+                            <span class="font-mono text-[9px] tracking-[0.25em] text-gold-400/60 block mb-3">SVC
+                                03</span>
+                            <h4 class="font-serif text-lg text-ivory mb-2">Fare rules in plain terms</h4>
+                            <p class="text-gray-500 text-sm font-light leading-relaxed">What a date change costs, what
+                                is refundable and what is not — explained before you pay, not after.</p>
+                        </div>
+                        <div class="p-6 md:p-8">
+                            <span class="font-mono text-[9px] tracking-[0.25em] text-gold-400/60 block mb-3">SVC
+                                04</span>
+                            <h4 class="font-serif text-lg text-ivory mb-2">Disruption re-routing</h4>
+                            <p class="text-gray-500 text-sm font-light leading-relaxed">If a flight is delayed or
+                                cancelled, we rebook it. You call one number and it is handled.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Consultation CTA -->
+    <section class="relative py-24 min-h-[50vh] flex items-center justify-center border-t border-white/5">
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80"
+                alt="Mountain Horizon" class="w-full h-full object-cover opacity-10">
+            <div class="absolute inset-0 bg-navy-900/90"></div>
+        </div>
+
+        <div class="container mx-auto px-6 relative z-10 text-center max-w-3xl flex flex-col items-center">
+            <span class="tag">Draft An Itinerary</span>
+            <h3 class="font-serif text-3xl md:text-5xl text-ivory mb-6 mt-8 leading-[1.1]">Ready to map out your
+                experience?</h3>
+            <p class="text-gray-300 text-sm md:text-base mb-10 font-light leading-relaxed max-w-xl mx-auto">
+                Connect with our concierge department today to verify pricing, design tour paths, and reserve bookings.
+            </p>
+            <a href="contact.html"
+                class="btn-gold px-10 py-4 rounded-sm inline-block font-mono text-[10px] uppercase tracking-[0.2em]">
+                Commence travel planning
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-navy-950 border-t border-white/5 py-16">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+                <!-- Col 1: Brand -->
+                <div class="md:col-span-2">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="h-8">
+                            <img src="logo-mark.png" alt="Pleasure Global Travel &amp; Visa LLP"
+                        class="h-full w-auto" width="386" height="132">
+                        </div>
+                        <div class="flex flex-col">
+                            <span class="text-base font-bold tracking-widest text-ivory uppercase font-serif">
+                                PLEASURE GLOBAL
+                            </span>
+                            <span class="text-[7px] uppercase tracking-[0.38em] text-gray-500 font-sans">
+                                TRAVEL & VISA LLP
+                            </span>
+                        </div>
+                    </div>
+                    <p class="text-gray-500 text-sm max-w-sm font-light leading-relaxed mb-6">
+                        Architecting bespoke journeys, premium flights, and elite visa clearances for travelers seeking
+                        a flawless luxury experience.
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="#"
+                            class="w-8 h-8 rounded-full border border-white/10 hover:border-gold-400 hover:text-gold-400 transition-colors flex items-center justify-center text-gray-400"><i
+                                data-lucide="instagram" class="w-4 h-4"></i></a>
+                        <a href="#"
+                            class="w-8 h-8 rounded-full border border-white/10 hover:border-gold-400 hover:text-gold-400 transition-colors flex items-center justify-center text-gray-400"><i
+                                data-lucide="facebook" class="w-4 h-4"></i></a>
+                        <a href="#"
+                            class="w-8 h-8 rounded-full border border-white/10 hover:border-gold-400 hover:text-gold-400 transition-colors flex items-center justify-center text-gray-400"><i
+                                data-lucide="twitter" class="w-4 h-4"></i></a>
+                    </div>
+                </div>
+
+                <!-- Col 2: Navigation Links -->
+                <div>
+                    <h4 class="font-serif text-white text-base mb-6 tracking-wide">Explore</h4>
+                    <ul class="space-y-3 text-sm text-gray-400 font-light">
+                        <li><a href="index.html" class="hover:text-gold-400 transition-colors">Home</a></li>
+                        <li><a href="about.html" class="hover:text-gold-400 transition-colors">About Us</a></li>
+                        <li><a href="visa-services.html" class="hover:text-gold-400 transition-colors">Visa Services</a>
+                        </li>
+                        <li><a href="travel-services.html" class="hover:text-gold-400 transition-colors">Travel
+                                Services</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3: Contact details -->
+                <div>
+                    <h4 class="font-serif text-white text-base mb-6 tracking-wide">Concierge Office</h4>
+                    <ul class="space-y-4 text-sm text-gray-400 font-light">
+                        <li class="flex items-center gap-3">
+                            <i data-lucide="mail" class="text-gold-400 w-4 h-4 shrink-0"></i>
+                            <span class="text-xs">concierge@pleasureglobals.com</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i data-lucide="phone" class="text-gold-400 w-4 h-4 shrink-0"></i>
+                            <span class="text-xs">+1 (555) 012-3456</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="map-pin" class="text-gold-400 w-4 h-4 shrink-0 mt-0.5"></i>
+                            <span class="text-xs leading-normal">Global Headquarters,<br>Manhattan, NY 10001</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div
+                class="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-gray-600 text-xs font-sans tracking-widest">
+                <div>
+                    &copy; 2026 Pleasure Global Travel & Visa LLP. All rights reserved.
+                </div>
+                <div class="flex gap-6">
+                    <a href="#" class="hover:text-gray-400 transition-colors">Terms</a>
+                    <a href="#" class="hover:text-gray-400 transition-colors">Privacy Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Main JavaScript Logic -->
+    <script src="app.js"></script>
+
+    <script>
+        (function () {
+            if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+            if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
+            gsap.registerPlugin(ScrollTrigger);
+
+            gsap.to('#scroll-rail', {
+                scaleX: 1, ease: 'none',
+                scrollTrigger: { trigger: document.body, start: 'top top', end: 'bottom bottom', scrub: 0.3 }
+            });
+
+            gsap.utils.toArray('.tag').forEach(function (el) {
+                gsap.from(el, {
+                    opacity: 0, x: -18, duration: 0.7, ease: 'power2.out',
+                    scrollTrigger: { trigger: el, start: 'top 90%' }
+                });
+            });
+
+            window.addEventListener('load', function () { ScrollTrigger.refresh(); });
+        })();
+    </script>
+</body>
+
+</html>
